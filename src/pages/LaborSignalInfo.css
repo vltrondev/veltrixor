@@ -109,5 +109,8 @@
 }
 
 @media (max-width: 768px) {
-  .ls-pricing-grid { grid-template-columns: 1fr; }
+  .ls-pricing-grid { 
+    grid-template-columns: 1fr; 
+    gap: 2.5rem; /* Increased gap for mobile stacking */
+  }
 }

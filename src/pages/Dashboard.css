@@ -87,7 +87,10 @@
 }
 
 @media (max-width: 768px) {
-  .vt-launchpad-grid { grid-template-columns: 1fr; }
+  .vt-launchpad-grid { 
+    grid-template-columns: 1fr; 
+    gap: 2.5rem; /* Increased gap for mobile stacking */
+  }
 }
 
 /* SSO Simulation Styles */

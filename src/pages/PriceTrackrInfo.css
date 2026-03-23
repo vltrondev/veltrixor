@@ -163,5 +163,8 @@ input:checked + .pt-slider:before {
 }
 
 @media (max-width: 768px) {
-  .pt-pricing-grid { grid-template-columns: 1fr; }
+  .pt-pricing-grid { 
+    grid-template-columns: 1fr; 
+    gap: 2.5rem; /* Increased gap for mobile stacking */
+  }
 }
