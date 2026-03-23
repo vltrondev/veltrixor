@@ -1,0 +1,81 @@
+.vt-footer {
+  background-color: var(--vt-deep-black);
+  border-top: 1px solid var(--vt-border);
+  padding: 5rem 2rem 2rem;
+  margin-top: auto;
+}
+
+.vt-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.vt-footer-brand {
+  flex: 1;
+  min-width: 250px;
+}
+
+.vt-footer-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--vt-electric-blue);
+  text-decoration: none;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.vt-footer-desc {
+  color: var(--vt-text-secondary);
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+.vt-footer-grid {
+  display: flex;
+  gap: 4rem;
+}
+
+.vt-footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.vt-footer-column h4 {
+  color: var(--vt-text-primary);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.vt-footer-column a {
+  color: var(--vt-text-secondary);
+  text-decoration: none;
+  transition: var(--vt-transition);
+  font-size: 0.938rem;
+}
+
+.vt-footer-column a:hover {
+  color: var(--vt-electric-blue);
+}
+
+.vt-footer-bottom {
+  max-width: 1200px;
+  margin: 4rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--vt-border);
+  text-align: center;
+  color: var(--vt-text-secondary);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .vt-footer-grid {
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+}

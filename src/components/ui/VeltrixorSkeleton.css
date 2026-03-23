@@ -1,0 +1,37 @@
+.vt-skeleton {
+  background: rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--vt-border-radius);
+}
+
+.vt-skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  animation: vt-skeleton-shimmer 1.5s infinite;
+  transform: translateX(-100%);
+}
+
+.vt-skeleton-circle {
+  border-radius: 50%;
+}
+
+.vt-skeleton-rect {
+  border-radius: var(--vt-border-radius);
+}
+
+@keyframes vt-skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

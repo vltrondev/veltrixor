@@ -1,0 +1,62 @@
+.vt-button {
+  padding: 0.875rem 1.75rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: var(--vt-border-radius);
+  cursor: pointer;
+  transition: var(--vt-transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  outline: none;
+  user-select: none;
+}
+
+.vt-button-primary {
+  background-color: var(--vt-electric-blue);
+  color: white;
+  box-shadow: 0 4px 15px var(--vt-electric-blue-soft);
+}
+
+.vt-button-primary:hover:not(:disabled) {
+  background-color: #0056e0;
+  box-shadow: 0 8px 25px var(--vt-electric-blue-glow);
+  transform: translateY(-2px);
+}
+
+.vt-button-secondary {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: white;
+  border: 1px solid var(--vt-border);
+}
+
+.vt-button-secondary:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--vt-border-bright);
+  transform: translateY(-2px);
+}
+
+.vt-button-ghost {
+  background-color: transparent;
+  color: var(--vt-text-secondary);
+  padding: 0.5rem 1rem;
+}
+
+.vt-button-ghost:hover:not(:disabled) {
+  color: var(--vt-text-primary);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.vt-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.vt-button:active:not(:disabled) {
+  transform: scale(0.98);
+  filter: brightness(0.9);
+}

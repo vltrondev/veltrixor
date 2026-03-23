@@ -1,0 +1,23 @@
+:root {
+  /* Veltrixor Color Palette */
+  --vt-deep-black: #0a0a0a;
+  --vt-electric-blue: #0066ff;
+  --vt-electric-blue-glow: rgba(0, 102, 255, 0.4);
+  --vt-electric-blue-soft: rgba(0, 102, 255, 0.1);
+  --vt-surface-gray: #1a1a1a;
+  --vt-text-primary: #ffffff;
+  --vt-text-secondary: #a0a0a0;
+  --vt-border: rgba(255, 255, 255, 0.08);
+  --vt-border-bright: rgba(255, 255, 255, 0.15);
+
+  /* Effects */
+  --vt-glass-bg: rgba(20, 20, 20, 0.7);
+  --vt-glass-blur: blur(12px);
+  --vt-shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  --vt-shadow-glow: 0 0 20px rgba(0, 102, 255, 0.2);
+  
+  /* Layout */
+  --vt-border-radius: 12px;
+  --vt-border-radius-lg: 16px;
+  --vt-transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}

@@ -1,0 +1,39 @@
+.vt-typography {
+  margin: 0;
+  color: var(--vt-text-primary);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  transition: var(--vt-transition);
+}
+
+.vt-typography-h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.vt-typography-h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.vt-typography-h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.vt-typography-p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--vt-text-secondary);
+}
+
+.vt-typography-span {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .vt-typography-h1 { font-size: 2.5rem; }
+  .vt-typography-h2 { font-size: 2rem; }
+}

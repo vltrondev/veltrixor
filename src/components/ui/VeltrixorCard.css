@@ -1,0 +1,30 @@
+.vt-card {
+  background: var(--vt-glass-bg);
+  backdrop-filter: var(--vt-glass-blur);
+  -webkit-backdrop-filter: var(--vt-glass-blur);
+  border: 1px solid var(--vt-border);
+  border-radius: var(--vt-border-radius-lg);
+  padding: 2rem;
+  box-shadow: var(--vt-shadow-premium);
+  transition: var(--vt-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.vt-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--vt-border-bright), transparent);
+  opacity: 0.5;
+}
+
+.vt-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.9);
+  background: rgba(30, 30, 30, 0.7);
+}

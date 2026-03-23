@@ -1,0 +1,32 @@
+.vt-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--vt-border);
+  border-radius: var(--vt-border-radius-lg);
+  margin: 2rem 0;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.vt-empty-icon {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  opacity: 0.6;
+  filter: grayscale(0.5);
+  animation: vt-float 4s ease-in-out infinite;
+}
+
+@keyframes vt-float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

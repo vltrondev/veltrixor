@@ -1,0 +1,113 @@
+.ls-page {
+  width: 100%;
+}
+
+.ls-hero {
+  padding: 8rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0, 102, 255, 0.05) 0%, transparent 100%);
+}
+
+.ls-section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Pricing */
+.ls-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.vt-pricing-card {
+  transition: var(--vt-transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.vt-pricing-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 102, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 102, 255, 0.1);
+}
+
+.ls-card-featured {
+  border-color: var(--vt-electric-blue) !important;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 102, 255, 0.1);
+}
+
+.ls-card-featured:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 102, 255, 0.2);
+}
+
+.ls-badge {
+  position: absolute;
+  top: 1rem;
+  right: -2rem;
+  background: var(--vt-electric-blue);
+  color: white;
+  padding: 0.25rem 3rem;
+  transform: rotate(45deg);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.ls-price {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--vt-text-primary);
+  margin: 1.5rem 0;
+}
+
+.ls-price span {
+  font-size: 1rem;
+  color: var(--vt-text-secondary);
+}
+
+.ls-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ls-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--vt-text-secondary);
+}
+
+.ls-check {
+  color: var(--vt-electric-blue);
+  font-weight: 700;
+}
+
+/* FAQ */
+.ls-faq-container {
+  max-width: 800px;
+  margin: 4rem auto 0;
+}
+
+.ls-faq-item {
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .ls-pricing-grid { grid-template-columns: 1fr; }
+}

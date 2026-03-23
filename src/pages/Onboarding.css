@@ -1,0 +1,81 @@
+.vt-onboarding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 160px);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 769px) {
+  .vt-onboarding {
+    padding: 4rem 2rem;
+  }
+}
+
+.vt-onboarding-header {
+  margin-bottom: 3rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+@media (min-width: 769px) {
+  .vt-onboarding-header {
+    margin-bottom: 4rem;
+  }
+}
+
+.vt-onboarding-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+@media (min-width: 769px) {
+  .vt-onboarding-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.vt-onboarding-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  padding: 1.5rem !important;
+}
+
+@media (min-width: 769px) {
+  .vt-onboarding-card {
+    padding: 2rem !important;
+  }
+}
+
+.vt-onboarding-card:nth-child(1) { animation-delay: 0.2s; }
+.vt-onboarding-card:nth-child(2) { animation-delay: 0.4s; }
+
+.vt-onboarding-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 769px) {
+  .vt-onboarding-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
