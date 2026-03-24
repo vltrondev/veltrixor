@@ -5,7 +5,7 @@
 .ls-hero {
   padding: 8rem 2rem;
   text-align: center;
-  background: linear-gradient(180deg, rgba(0, 102, 255, 0.05) 0%, transparent 100%);
+  background: linear-gradient(180deg, var(--vt-electric-blue-soft) 0%, transparent 100%);
 }
 
 .ls-section {
@@ -38,19 +38,19 @@
 
 .vt-pricing-card:hover {
   transform: translateY(-10px);
-  border-color: rgba(0, 102, 255, 0.3);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 102, 255, 0.1);
+  border-color: var(--vt-border-bright);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--vt-shadow-glow);
 }
 
 .ls-card-featured {
   border-color: var(--vt-electric-blue) !important;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 15px rgba(0, 102, 255, 0.1);
+  box-shadow: 0 0 15px var(--vt-electric-blue-soft);
 }
 
 .ls-card-featured:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 102, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--vt-electric-blue-glow);
 }
 
 .ls-badge {
@@ -111,6 +111,9 @@
 @media (max-width: 768px) {
   .ls-pricing-grid { 
     grid-template-columns: 1fr; 
-    gap: 2.5rem; /* Increased gap for mobile stacking */
+    gap: 3rem; /* Further increased for premium breathing room */
+  }
+  .ls-grid {
+    gap: 2.5rem;
   }
 }

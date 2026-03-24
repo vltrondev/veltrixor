@@ -1,20 +1,24 @@
 :root {
-  /* Veltrixor Color Palette */
-  --vt-deep-black: #0a0a0a;
-  --vt-electric-blue: #0066ff;
-  --vt-electric-blue-glow: rgba(0, 102, 255, 0.4);
-  --vt-electric-blue-soft: rgba(0, 102, 255, 0.1);
-  --vt-surface-gray: #1a1a1a;
+  /* Veltrixor Official Color Palette - Task 21 */
+  --vt-deep-black: #0B0E14; /* Space Black */
+  --vt-electric-blue: #3182F1; /* Electric Blue */
+  --vt-electric-blue-glow: rgba(49, 130, 241, 0.4);
+  --vt-electric-blue-soft: rgba(49, 130, 241, 0.1);
+  --vt-deep-azure: #1A4B8E; /* Deep Azure */
+  --vt-deep-azure-soft: rgba(26, 75, 142, 0.2);
+  --vt-surface-gray: #12161F; /* Slightly lighter than Space Black for surfaces */
+  
+  /* Text and Accents */
   --vt-text-primary: #ffffff;
-  --vt-text-secondary: #a0a0a0;
+  --vt-text-secondary: #94A3B8;
   --vt-border: rgba(255, 255, 255, 0.08);
-  --vt-border-bright: rgba(255, 255, 255, 0.15);
+  --vt-border-bright: rgba(49, 130, 241, 0.25);
 
   /* Effects */
-  --vt-glass-bg: rgba(20, 20, 20, 0.7);
-  --vt-glass-blur: blur(12px);
+  --vt-glass-bg: rgba(11, 14, 20, 0.75);
+  --vt-glass-blur: blur(16px);
   --vt-shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-  --vt-shadow-glow: 0 0 20px rgba(0, 102, 255, 0.2);
+  --vt-shadow-glow: 0 0 20px rgba(49, 130, 241, 0.15);
   
   /* Layout */
   --vt-border-radius: 12px;

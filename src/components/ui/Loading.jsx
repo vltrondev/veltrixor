@@ -6,16 +6,16 @@ export default function Loading() {
       alignItems: 'center',
       height: '100vh',
       width: '100%',
-      backgroundColor: '#0a0a0a',
-      color: '#0066ff',
+      backgroundColor: 'var(--vt-deep-black)',
+      color: 'var(--vt-electric-blue)',
       flexDirection: 'column',
       gap: '20px'
     }}>
       <div className="spinner" style={{
         width: '50px',
         height: '50px',
-        border: '5px solid #1a1a1a',
-        borderTop: '5px solid #0066ff',
+        border: '5px solid var(--vt-surface-gray)',
+        borderTop: '5px solid var(--vt-electric-blue)',
         borderRadius: '50%',
         animation: 'spin 1s linear infinite'
       }}></div>

@@ -31,14 +31,11 @@
   align-items: center;
 }
 
-.vt-navbar-logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 4px;
-  color: var(--vt-electric-blue);
+.vt-navbar-logo-link {
   text-decoration: none;
-  transition: var(--vt-transition);
   z-index: 101;
+  display: flex;
+  align-items: center;
 }
 
 .vt-navbar-links {

@@ -28,7 +28,7 @@
 .vt-onboarding-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2.5rem;
   width: 100%;
   max-width: 900px;
 }

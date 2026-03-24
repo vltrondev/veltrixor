@@ -165,6 +165,9 @@ input:checked + .pt-slider:before {
 @media (max-width: 768px) {
   .pt-pricing-grid { 
     grid-template-columns: 1fr; 
-    gap: 2.5rem; /* Increased gap for mobile stacking */
+    gap: 3rem; /* Further increased for premium breathing room */
+  }
+  .pt-feature-grid {
+    gap: 2.5rem;
   }
 }

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import VeltrixorButton from '../ui/VeltrixorButton';
+import VeltrixorLogo from '../ui/VeltrixorLogo';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -38,8 +39,8 @@ export default function Navbar() {
   return (
     <nav className={`vt-navbar ${isScrolled ? 'vt-navbar-scrolled' : ''} ${isMenuOpen ? 'vt-navbar-open' : ''}`}>
       <div className="vt-navbar-container">
-        <Link to="/" className="vt-navbar-logo">
-          VELTRIXOR
+        <Link to="/" className="vt-navbar-logo-link">
+          <VeltrixorLogo size={32} />
         </Link>
 
         {!isAuthPage && (

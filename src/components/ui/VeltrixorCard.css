@@ -23,8 +23,8 @@
 }
 
 .vt-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--vt-border-bright);
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.9);
-  background: rgba(30, 30, 30, 0.7);
+  box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.9), 0 0 15px var(--vt-electric-blue-soft);
+  background: rgba(18, 22, 31, 0.8);
 }

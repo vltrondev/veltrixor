@@ -22,8 +22,8 @@
 }
 
 .vt-button-primary:hover:not(:disabled) {
-  background-color: #0056e0;
-  box-shadow: 0 8px 25px var(--vt-electric-blue-glow);
+  background-color: #4591ff; /* Slightly lighter Electric Blue */
+  box-shadow: 0 8px 30px var(--vt-electric-blue-glow);
   transform: translateY(-2px);
 }
 

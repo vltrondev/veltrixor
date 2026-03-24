@@ -102,21 +102,21 @@ export default function Home() {
         
         <div className="vt-benefits-grid">
           <div className="vt-benefit-item reveal">
-            <VeltrixorTypography variant="span" style={{ color: 'var(--vt-electric-blue)', fontSize: '2rem' }}>01</VeltrixorTypography>
+            <div className="vt-benefit-number">01</div>
             <VeltrixorTypography variant="h3">Single Sign-On (SSO)</VeltrixorTypography>
             <VeltrixorTypography variant="p">
               Access all current and future Veltrixor products with a single digital identity.
             </VeltrixorTypography>
           </div>
           <div className="vt-benefit-item reveal">
-            <VeltrixorTypography variant="span" style={{ color: 'var(--vt-electric-blue)', fontSize: '2rem' }}>02</VeltrixorTypography>
+            <div className="vt-benefit-number">02</div>
             <VeltrixorTypography variant="h3">Premium Design</VeltrixorTypography>
             <VeltrixorTypography variant="p">
               Modern and fluid interfaces designed to reduce friction and enhance productivity.
             </VeltrixorTypography>
           </div>
           <div className="vt-benefit-item reveal">
-            <VeltrixorTypography variant="span" style={{ color: 'var(--vt-electric-blue)', fontSize: '2rem' }}>03</VeltrixorTypography>
+            <div className="vt-benefit-number">03</div>
             <VeltrixorTypography variant="h3">Global Security</VeltrixorTypography>
             <VeltrixorTypography variant="p">
               Your data is protected by enterprise-grade security standards across the entire network.

@@ -73,8 +73,8 @@
 
 .vt-form-group input:focus {
   border-color: var(--vt-electric-blue);
-  background: rgba(0, 102, 255, 0.05);
-  box-shadow: 0 0 15px rgba(0, 102, 255, 0.1);
+  background: var(--vt-electric-blue-soft);
+  box-shadow: 0 0 15px var(--vt-shadow-glow);
 }
 
 .vt-form-row {
