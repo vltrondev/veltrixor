@@ -1,41 +1,47 @@
 :root {
-  /* Synapcraft Official Design System - Core Tokens */
-  --sc-bg-dark: #06090f;            /* Deep Obsidian Void */
-  --sc-bg-surface: #0a0f1d;         /* Cyber Slate Surface */
-  --sc-bg-card: rgba(12, 19, 34, 0.75); /* Translucent Card Surface */
-  --sc-bg-card-hover: rgba(17, 27, 48, 0.85);
+  /* Synapcraft Official Design System - Core Tokens (Light / White Theme) */
+  --sc-bg-dark: #ffffff;            /* Base Pure White Canvas */
+  --sc-bg-surface: #f8fafc;         /* Crisp Off-White Surface (Slate 50) */
+  --sc-bg-subtle: #f1f5f9;          /* Slate 100 subtle background */
+  --sc-bg-card: #ffffff;            /* Pure White Card Surface */
+  --sc-bg-card-hover: #ffffff;
   
   /* Primary & Accent Spectrum */
-  --sc-cyan: #00d4ff;               /* Radiant Synapse Cyan */
-  --sc-cyan-light: #38bdf8;         /* Sky Cyan */
-  --sc-cyan-glow: rgba(0, 212, 255, 0.35);
-  --sc-cyan-soft: rgba(0, 212, 255, 0.1);
+  --sc-cyan: #0284c7;               /* Deep Vivid Cyan / Sky 600 for high readability on white */
+  --sc-cyan-light: #0ea5e9;         /* Sky 500 */
+  --sc-cyan-glow: rgba(2, 132, 199, 0.2);
+  --sc-cyan-soft: rgba(2, 132, 199, 0.08);
   --sc-blue: #2563eb;               /* Electric Blue */
   --sc-blue-deep: #1d4ed8;
-  --sc-blue-glow: rgba(37, 99, 235, 0.4);
-  --sc-navy: #0d1e38;               /* Deep Navy Accent */
+  --sc-blue-glow: rgba(37, 99, 235, 0.25);
+  --sc-navy: #0f172a;               /* Deep Navy Accent */
+  
+  /* WhatsApp Green Accents */
+  --sc-whatsapp: #25D366;
+  --sc-whatsapp-dark: #128C7E;
+  --sc-whatsapp-glow: rgba(37, 211, 102, 0.28);
   
   /* Gradient Accents */
-  --sc-gradient-primary: linear-gradient(135deg, #00d4ff 0%, #2563eb 100%);
-  --sc-gradient-text: linear-gradient(135deg, #ffffff 30%, #38bdf8 100%);
-  --sc-gradient-cyan: linear-gradient(135deg, #38bdf8 0%, #00d4ff 100%);
-  --sc-gradient-card: linear-gradient(180deg, rgba(16, 27, 48, 0.6) 0%, rgba(9, 14, 25, 0.8) 100%);
-  --sc-gradient-border: linear-gradient(135deg, rgba(0, 212, 255, 0.4) 0%, rgba(37, 99, 235, 0.1) 100%);
+  --sc-gradient-primary: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  --sc-gradient-text: linear-gradient(135deg, #0f172a 30%, #0284c7 100%);
+  --sc-gradient-cyan: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  --sc-gradient-card: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  --sc-gradient-border: linear-gradient(135deg, rgba(2, 132, 199, 0.3) 0%, rgba(37, 99, 235, 0.1) 100%);
 
   /* Text & Contrast */
-  --sc-text-primary: #f8fafc;
-  --sc-text-secondary: #94a3b8;
-  --sc-text-muted: #64748b;
-  --sc-border: rgba(56, 189, 248, 0.14);
-  --sc-border-bright: rgba(0, 212, 255, 0.35);
-  --sc-border-subtle: rgba(255, 255, 255, 0.06);
+  --sc-text-primary: #0f172a;        /* Slate 900 - Dark crisp text */
+  --sc-text-secondary: #475569;      /* Slate 600 - Highly legible subtext */
+  --sc-text-muted: #64748b;          /* Slate 500 */
+  --sc-border: rgba(15, 23, 42, 0.09);
+  --sc-border-bright: rgba(2, 132, 199, 0.3);
+  --sc-border-subtle: rgba(15, 23, 42, 0.05);
 
   /* Glassmorphism & Shadow Depth */
-  --sc-glass-bg: rgba(7, 12, 22, 0.78);
+  --sc-glass-bg: rgba(255, 255, 255, 0.88);
   --sc-glass-blur: blur(20px);
-  --sc-shadow-premium: 0 16px 40px -10px rgba(0, 0, 0, 0.7);
-  --sc-shadow-glow: 0 0 35px rgba(0, 212, 255, 0.2);
-  --sc-shadow-card: 0 8px 30px rgba(0, 0, 0, 0.45);
+  --sc-shadow-premium: 0 16px 36px -8px rgba(15, 23, 42, 0.08);
+  --sc-shadow-glow: 0 0 25px rgba(2, 132, 199, 0.15);
+  --sc-shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03);
 
   /* Geometry & Motion */
   --sc-radius-sm: 8px;
@@ -45,12 +51,12 @@
   --sc-transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Legacy Backward Compatibility with previous veltrixor components */
-  --vt-deep-black: var(--sc-bg-dark);
+  --vt-deep-black: #0f172a;
   --vt-electric-blue: var(--sc-cyan);
   --vt-electric-blue-glow: var(--sc-cyan-glow);
   --vt-electric-blue-soft: var(--sc-cyan-soft);
   --vt-deep-azure: var(--sc-blue);
-  --vt-deep-azure-soft: rgba(37, 99, 235, 0.15);
+  --vt-deep-azure-soft: rgba(37, 99, 235, 0.08);
   --vt-surface-gray: var(--sc-bg-surface);
   --vt-text-primary: var(--sc-text-primary);
   --vt-text-secondary: var(--sc-text-secondary);

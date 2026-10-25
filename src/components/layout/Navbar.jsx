@@ -4,7 +4,9 @@ import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
 import SynapcraftLogo from '../ui/SynapcraftLogo';
 import InstagramIcon from '../ui/InstagramIcon';
-import { Sparkles, Globe, MessageSquare, ArrowRight } from 'lucide-react';
+import WhatsAppIcon from '../ui/WhatsAppIcon';
+import { CONTACT_CONFIG, getWhatsAppUrl } from '../../config/contact';
+import { Globe, ArrowRight } from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -55,6 +57,22 @@ export default function Navbar() {
           <div className={`sc-navbar-links ${isMenuOpen ? 'active' : ''}`}>
             <button 
               type="button" 
+              onClick={() => scrollToSection('paginas-web')} 
+              className="sc-nav-btn-link"
+            >
+              {t('nav.websites')}
+            </button>
+
+            <button 
+              type="button" 
+              onClick={() => scrollToSection('rubros')} 
+              className="sc-nav-btn-link"
+            >
+              {t('nav.rubros')}
+            </button>
+
+            <button 
+              type="button" 
               onClick={() => scrollToSection('servicios')} 
               className="sc-nav-btn-link"
             >
@@ -68,22 +86,6 @@ export default function Navbar() {
             >
               <span className="sc-pulse-dot" />
               {t('nav.dentalgrid')}
-            </button>
-
-            <button 
-              type="button" 
-              onClick={() => scrollToSection('modelo')} 
-              className="sc-nav-btn-link"
-            >
-              {t('nav.model')}
-            </button>
-
-            <button 
-              type="button" 
-              onClick={() => scrollToSection('ceo')} 
-              className="sc-nav-btn-link"
-            >
-              {t('nav.ceo')}
             </button>
 
             <button 
@@ -118,23 +120,24 @@ export default function Navbar() {
               </div>
 
               <a 
-                href="https://instagram.com/synapcraft" 
+                href={CONTACT_CONFIG.instagramUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="sc-mobile-instagram-btn"
               >
                 <InstagramIcon size={18} />
-                <span>@synapcraft</span>
+                <span>{CONTACT_CONFIG.instagramHandle}</span>
               </a>
 
-              <button 
-                type="button" 
-                className="sc-cta-btn sc-mobile-cta"
-                onClick={() => scrollToSection('contacto')}
+              <a 
+                href={getWhatsAppUrl('Hola Synapcraft, vi su página web y quiero información para mi negocio en República Dominicana.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sc-cta-btn sc-nav-wa-btn sc-mobile-cta"
               >
-                {t('nav.quoteBtn')}
-                <ArrowRight size={16} />
-              </button>
+                <WhatsAppIcon size={18} />
+                <span>{t('nav.quoteBtn')}</span>
+              </a>
             </div>
           </div>
         )}
@@ -164,7 +167,7 @@ export default function Navbar() {
 
           {/* Instagram direct link */}
           <a 
-            href="https://instagram.com/synapcraft" 
+            href={CONTACT_CONFIG.instagramUrl} 
             target="_blank" 
             rel="noopener noreferrer" 
             className="sc-instagram-link sc-desktop-only"
@@ -173,19 +176,20 @@ export default function Navbar() {
             <InstagramIcon size={18} />
           </a>
 
-          {/* Main CTA */}
-          <button 
-            type="button"
-            className="sc-cta-btn sc-desktop-only"
-            onClick={() => scrollToSection('contacto')}
+          {/* Main CTA: WhatsApp directo */}
+          <a 
+            href={getWhatsAppUrl('Hola Synapcraft, vi su página web y quiero información para mi negocio en República Dominicana.')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sc-cta-btn sc-nav-wa-btn sc-desktop-only"
+            id="nav-whatsapp-cta"
           >
-            <span className="sc-cta-glow-pulse" />
             <span className="sc-cta-inner">
-              <Sparkles size={15} className="sc-cta-sparkle" />
+              <WhatsAppIcon size={16} className="sc-cta-sparkle" />
               <span>{t('nav.quoteBtn')}</span>
               <ArrowRight size={14} className="sc-cta-arrow" />
             </span>
-          </button>
+          </a>
 
           {/* Hamburger button */}
           <button 

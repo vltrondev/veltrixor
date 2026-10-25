@@ -3,52 +3,44 @@ import { useLanguage } from '../context/LanguageContext';
 import { 
   Building2, 
   Globe2, 
-  Cpu, 
   Sparkles, 
   ArrowRight, 
   CheckCircle2, 
   ExternalLink, 
   ShieldCheck, 
   Zap, 
-  Layers, 
-  Calendar, 
-  UserCheck, 
-  Activity, 
   Send,
-  Code2,
-  Database,
-  Bot,
-  Stethoscope
+  Search,
+  MapPin,
+  Clock,
+  Smartphone,
+  MessageCircle,
+  Pill,
+  Wrench,
+  Dumbbell,
+  Package,
+  Boxes,
+  Headphones,
+  ChevronRight
 } from 'lucide-react';
 import InstagramIcon from '../components/ui/InstagramIcon';
+import WhatsAppIcon from '../components/ui/WhatsAppIcon';
+import { CONTACT_CONFIG, getWhatsAppUrl } from '../config/contact';
 import './Home.css';
 
 export default function Home() {
-  const { t, language, isSpanish } = useLanguage();
-
-  // DentalGrid Interactive Mockup State
-  const [selectedTooth, setSelectedTooth] = useState(16);
-  const [toothStatus, setToothStatus] = useState({
-    16: { label: isSpanish ? 'Corona de Zirconio' : 'Zirconia Crown', state: 'completed', color: '#00d4ff' },
-    11: { label: isSpanish ? 'Limpieza Ultrasónica' : 'Ultrasonic Cleaning', state: 'healthy', color: '#10b981' },
-    24: { label: isSpanish ? 'Endodoncia Programada' : 'Scheduled Root Canal', state: 'pending', color: '#f59e0b' },
-    36: { label: isSpanish ? 'Restauración Estética' : 'Esthetic Restoration', state: 'completed', color: '#00d4ff' }
-  });
+  const { t, isSpanish } = useLanguage();
 
   // Contact Form State
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    service: 'software-corporativo',
-    budget: '$3k-$10k',
+    contactInfo: '',
+    service: 'pagina-web',
+    rubro: 'farmacia',
     message: ''
   });
-
-  const handleToothClick = (num) => {
-    setSelectedTooth(num);
-  };
 
   const encodeFormData = (data) => {
     return Object.keys(data)
@@ -78,104 +70,176 @@ export default function Home() {
     }
   };
 
-  const teethList = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28];
+  const getRubroIcon = (id) => {
+    switch (id) {
+      case 'farmacias':
+        return <Pill size={26} className="sc-rubro-icon-svg" />;
+      case 'ferreterias':
+        return <Wrench size={26} className="sc-rubro-icon-svg" />;
+      case 'gimnasios':
+        return <Dumbbell size={26} className="sc-rubro-icon-svg" />;
+      default:
+        return <Building2 size={26} className="sc-rubro-icon-svg" />;
+    }
+  };
+
+  const getFeatureIcon = (id) => {
+    switch (id) {
+      case 'servicios':
+        return <Package size={22} />;
+      case 'ubicacion':
+        return <MapPin size={22} />;
+      case 'whatsapp':
+        return <WhatsAppIcon size={22} />;
+      case 'celular':
+        return <Smartphone size={22} />;
+      case 'google':
+        return <Search size={22} />;
+      default:
+        return <CheckCircle2 size={22} />;
+    }
+  };
 
   return (
     <div className="sc-home">
       {/* ========================================================
-          1. HERO SECTION
+          1. HERO SECTION (REEMPLAZADO)
          ======================================================== */}
       <section className="sc-hero-section">
         {/* Background Ambient Glows */}
         <div className="sc-hero-glow sc-glow-cyan" />
-        <div className="sc-hero-glow sc-glow-blue" />
+        <div className="sc-hero-glow sc-glow-green" />
         <div className="sc-grid-pattern" />
 
         <div className="sc-hero-container">
-          {/* Top Pill Badge */}
+          {/* Eyebrow Badge */}
           <div className="sc-badge-wrapper">
             <span className="sc-pill-badge">
               <span className="sc-badge-indicator" />
               <Sparkles size={14} className="sc-badge-icon" />
-              <span>{t('hero.badge')}</span>
+              <span>{t('hero.eyebrow')}</span>
             </span>
           </div>
 
-          {/* Hero Typography */}
+          {/* Hero Titular */}
           <h1 className="sc-hero-title">
-            {t('hero.titleLine1')}{' '}
-            <span className="sc-hero-gradient">{t('hero.titleHighlight')}</span>{' '}
-            {t('hero.titleLine2')}
+            {t('hero.titleStart')}{' '}
+            <span className="sc-hero-sub-phrase">
+              {t('hero.titleAnd')}{' '}
+              <span className="sc-hero-gradient-wa">{t('hero.titleHighlight')}</span>
+            </span>
           </h1>
 
+          {/* Hero Subtitle */}
           <p className="sc-hero-subtitle">
             {t('hero.subtitle')}
           </p>
 
           {/* Action Buttons */}
           <div className="sc-hero-actions">
-            <a href="#contacto" className="sc-btn-primary">
-              <span className="sc-btn-shine" />
-              <span className="sc-btn-content">
-                <span>{t('hero.ctaPrimary')}</span>
-                <ArrowRight size={18} className="sc-btn-arrow" />
-              </span>
+            <a 
+              href={getWhatsAppUrl('Hola Synapcraft, quiero una página web para mi negocio en República Dominicana.')}
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="sc-btn-whatsapp-primary"
+              id="hero-whatsapp-btn"
+            >
+              <span className="sc-wa-beacon" />
+              <WhatsAppIcon size={20} className="sc-wa-icon" />
+              <span>{t('hero.ctaPrimary')}</span>
             </a>
 
-            <a href="#dentalgrid" className="sc-btn-secondary">
-              <Stethoscope size={18} className="sc-dental-icon" />
+            <a href="#paginas-web" className="sc-btn-secondary">
               <span>{t('hero.ctaSecondary')}</span>
+              <ArrowRight size={16} />
             </a>
           </div>
 
-          {/* 3D Neural Synapse Hero Visual Display */}
+          {/* Interactive Dominican Business & Google Simulation Card */}
           <div className="sc-hero-visual-card">
-            <div className="sc-synapse-visual-container">
-              {/* Floating Tech Badges */}
-              <div className="sc-floating-tag sc-tag-top-left">
-                <Building2 size={16} />
-                <span>Enterprise Systems</span>
-              </div>
-              <div className="sc-floating-tag sc-tag-top-right">
-                <Globe2 size={16} />
-                <span>Modern Web & High SEO</span>
-              </div>
-              <div className="sc-floating-tag sc-tag-bottom-left">
-                <Bot size={16} />
-                <span>AI Agents & I/O</span>
-              </div>
-              <div className="sc-floating-tag sc-tag-bottom-right">
-                <Stethoscope size={16} />
-                <span>DentalGrid SaaS</span>
+            <div className="sc-simulation-container">
+              {/* Google Search Mockup Bar */}
+              <div className="sc-google-bar">
+                <div className="sc-google-logo-wrapper">
+                  <span className="sc-google-g">G</span>
+                  <span className="sc-google-o1">o</span>
+                  <span className="sc-google-o2">o</span>
+                  <span className="sc-google-g2">g</span>
+                  <span className="sc-google-l">l</span>
+                  <span className="sc-google-e">e</span>
+                </div>
+                <div className="sc-google-search-input">
+                  <Search size={15} className="sc-search-icon-sm" />
+                  <span className="sc-typed-text">
+                    {isSpanish 
+                      ? 'farmacias y ferreterías en República Dominicana' 
+                      : 'best business & store near me Dominican Republic'}
+                  </span>
+                  <span className="sc-cursor-blink">|</span>
+                </div>
               </div>
 
-              {/* Central Glowing Synapcraft 3D Node */}
-              <div className="sc-synapse-core">
-                <div className="sc-synapse-pulse-ring" />
-                <div className="sc-synapse-pulse-ring-outer" />
-                <img 
-                  src="/synapcraft-icon.png" 
-                  alt="Synapcraft Neural Architecture" 
-                  className="sc-synapse-icon-hero" 
-                />
+              {/* Simulated Google Maps / Local Business Result */}
+              <div className="sc-simulated-result">
+                <div className="sc-result-header">
+                  <div className="sc-result-biz-info">
+                    <div className="sc-biz-name-row">
+                      <span className="sc-biz-verified-badge">✓ Verificado en Google</span>
+                      <span className="sc-biz-name">Tu Negocio en República Dominicana</span>
+                    </div>
+                    <div className="sc-biz-rating">
+                      <span className="sc-stars">★★★★★</span>
+                      <span className="sc-rating-score">4.9</span>
+                      <span className="sc-reviews-count">(85+ opiniones)</span>
+                      <span className="sc-biz-status">• Abierto ahora</span>
+                    </div>
+                  </div>
+
+                  <a 
+                    href={getWhatsAppUrl('Hola Synapcraft, vi su demostración de cómo se ve un negocio en Google y quiero mi página web.')} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="sc-result-wa-btn"
+                    title="Probar contacto directo por WhatsApp"
+                  >
+                    <WhatsAppIcon size={16} />
+                    <span>WhatsApp en 1 clic</span>
+                  </a>
+                </div>
+
+                {/* Features Pills inside simulation */}
+                <div className="sc-result-details">
+                  <div className="sc-detail-chip">
+                    <MapPin size={13} />
+                    <span>Santo Domingo / Santiago / Todo RD</span>
+                  </div>
+                  <div className="sc-detail-chip">
+                    <Clock size={13} />
+                    <span>Horario: Lun - Sáb: 8:00 AM - 7:00 PM</span>
+                  </div>
+                  <div className="sc-detail-chip sc-chip-highlight">
+                    <Smartphone size={13} />
+                    <span>Catálogo & Pedidos al instante</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Metrics Strip */}
             <div className="sc-hero-metrics">
               <div className="sc-metric-col">
-                <span className="sc-metric-num">{t('hero.stat1Number')}</span>
-                <span className="sc-metric-lbl">{t('hero.stat1Label')}</span>
+                <Search size={18} className="sc-metric-icon" />
+                <span className="sc-metric-lbl">{t('hero.badge1')}</span>
               </div>
               <div className="sc-metric-sep" />
               <div className="sc-metric-col">
-                <span className="sc-metric-num">{t('hero.stat2Number')}</span>
-                <span className="sc-metric-lbl">{t('hero.stat2Label')}</span>
+                <WhatsAppIcon size={18} className="sc-metric-icon sc-icon-green" />
+                <span className="sc-metric-lbl">{t('hero.badge2')}</span>
               </div>
               <div className="sc-metric-sep" />
               <div className="sc-metric-col">
-                <span className="sc-metric-num">{t('hero.stat3Number')}</span>
-                <span className="sc-metric-lbl">{t('hero.stat3Label')}</span>
+                <Smartphone size={18} className="sc-metric-icon sc-icon-cyan" />
+                <span className="sc-metric-lbl">{t('hero.badge3')}</span>
               </div>
             </div>
           </div>
@@ -183,23 +247,124 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          2. CORE SERVICES SECTION
+          2. SECCIÓN: PÁGINAS WEB PARA NEGOCIOS
+         ======================================================== */}
+      <section id="paginas-web" className="sc-section sc-business-section">
+        <div className="sc-section-header">
+          <span className="sc-section-badge">{t('businessWebsites.badge')}</span>
+          <h2 className="sc-section-title">{t('businessWebsites.title')}</h2>
+          <p className="sc-section-subtitle sc-section-readable-p">
+            {t('businessWebsites.text')}
+          </p>
+        </div>
+
+        {/* Qué Incluye Grid */}
+        <div className="sc-includes-wrapper">
+          <h3 className="sc-includes-heading">
+            <Sparkles size={20} className="sc-sparkle-cyan" />
+            <span>{t('businessWebsites.includesTitle')}</span>
+          </h3>
+
+          <div className="sc-features-grid">
+            {t('businessWebsites.features').map((item) => (
+              <div key={item.id} className="sc-feature-card">
+                <div className="sc-feature-icon-box">
+                  {getFeatureIcon(item.id)}
+                </div>
+                <h4 className="sc-feature-title">{item.title}</h4>
+                <p className="sc-feature-desc">{item.desc}</p>
+                <div className="sc-feature-footer">
+                  <span className="sc-feature-check">
+                    <CheckCircle2 size={15} />
+                    <span>Listo para usar</span>
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================
+          3. SECCIÓN: POR RUBRO (BLOQUES CORTOS)
+         ======================================================== */}
+      <section id="rubros" className="sc-section sc-rubros-section">
+        <div className="sc-section-header">
+          <span className="sc-section-badge">{t('rubros.badge')}</span>
+          <h2 className="sc-section-title">{t('rubros.title')}</h2>
+          <p className="sc-section-subtitle">{t('rubros.subtitle')}</p>
+        </div>
+
+        <div className="sc-rubros-grid">
+          {t('rubros.items').map((rubro) => (
+            <div key={rubro.id} className={`sc-rubro-card sc-rubro-${rubro.id}`}>
+              <div className="sc-rubro-header">
+                <div className="sc-rubro-icon-box">
+                  {getRubroIcon(rubro.id)}
+                </div>
+                <span className="sc-rubro-tag">{rubro.tag}</span>
+              </div>
+
+              <h3 className="sc-rubro-name">{rubro.name}</h3>
+              <p className="sc-rubro-text">{rubro.text}</p>
+
+              <div className="sc-rubro-highlight-box">
+                <span className="sc-rubro-dot" />
+                <span className="sc-rubro-highlight-text">{rubro.highlight}</span>
+              </div>
+
+              <div className="sc-rubro-footer">
+                <a 
+                  href={getWhatsAppUrl(`Hola Synapcraft, tengo un negocio de ${rubro.name} en República Dominicana y quiero información para mi página web.`)}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="sc-rubro-link"
+                >
+                  <WhatsAppIcon size={16} />
+                  <span>Cotizar para {rubro.name}</span>
+                  <ArrowRight size={14} />
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Dynamic call to other business types */}
+        <div className="sc-rubros-custom-banner">
+          <div className="sc-custom-banner-content">
+            <h4>¿Tienes otro tipo de negocio o comercio en República Dominicana?</h4>
+            <p>Talleres, reposterías, restaurantes, servicios profesionales o tiendas. Adaptamos la web a lo que vendes.</p>
+          </div>
+          <a 
+            href={getWhatsAppUrl('Hola Synapcraft, tengo un negocio en República Dominicana y quiero saber cómo quedaría mi página web.')}
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="sc-btn-whatsapp-sm"
+          >
+            <WhatsAppIcon size={17} />
+            <span>Consultar mi Negocio por WhatsApp</span>
+          </a>
+        </div>
+      </section>
+
+      {/* ========================================================
+          4. SECCIÓN: SERVICIOS (TONO NUEVO)
          ======================================================== */}
       <section id="servicios" className="sc-section sc-services-section">
         <div className="sc-section-header">
-          <span className="sc-section-badge">{t('services.sectionBadge')}</span>
+          <span className="sc-section-badge">{t('services.badge')}</span>
           <h2 className="sc-section-title">{t('services.title')}</h2>
           <p className="sc-section-subtitle">{t('services.subtitle')}</p>
         </div>
 
         <div className="sc-services-grid">
-          {/* Service 1: Software Corporativo */}
-          <div className="sc-service-card">
+          {/* Servicio 1: Páginas web para negocios (Al frente, destacada) */}
+          <div className="sc-service-card sc-card-featured">
             <div className="sc-service-top">
-              <div className="sc-service-icon-box">
-                <Building2 size={28} />
+              <div className="sc-service-icon-box sc-icon-cyan">
+                <Globe2 size={28} />
               </div>
-              <span className="sc-service-tag">{t('services.service1.tag')}</span>
+              <span className="sc-service-tag sc-tag-featured">{t('services.service1.tag')}</span>
             </div>
             <h3 className="sc-service-heading">{t('services.service1.title')}</h3>
             <p className="sc-service-description">{t('services.service1.description')}</p>
@@ -212,21 +377,24 @@ export default function Home() {
               ))}
             </ul>
             <div className="sc-service-footer">
-              <a href="#contacto" className="sc-service-link">
-                <span>{isSpanish ? 'Cotizar Software' : 'Request Software'}</span>
-                <ArrowRight size={15} />
+              <a 
+                href={getWhatsAppUrl('Hola Synapcraft, me interesa el servicio de Páginas Web para Negocios.')}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="sc-service-link sc-link-wa"
+              >
+                <WhatsAppIcon size={16} />
+                <span>Pedir Página Web por WhatsApp</span>
+                <ArrowRight size={14} />
               </a>
             </div>
           </div>
 
-          {/* Service 2: Sitios Web para Negocios */}
-          <div className="sc-service-card sc-card-featured">
-            <div className="sc-featured-ribbon">
-              <span>{isSpanish ? 'ALTO IMPACTO' : 'HIGH IMPACT'}</span>
-            </div>
+          {/* Servicio 2: Sistemas sencillos a medida */}
+          <div className="sc-service-card">
             <div className="sc-service-top">
-              <div className="sc-service-icon-box sc-icon-cyan">
-                <Globe2 size={28} />
+              <div className="sc-service-icon-box">
+                <Boxes size={28} />
               </div>
               <span className="sc-service-tag">{t('services.service2.tag')}</span>
             </div>
@@ -241,18 +409,23 @@ export default function Home() {
               ))}
             </ul>
             <div className="sc-service-footer">
-              <a href="#contacto" className="sc-service-link sc-link-cyan">
-                <span>{isSpanish ? 'Diseñar mi Sitio Web' : 'Build My Website'}</span>
+              <a 
+                href={getWhatsAppUrl('Hola Synapcraft, me interesa un sistema sencillo a medida (inventario / contabilidad / citas).')}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="sc-service-link"
+              >
+                <span>Consultar Sistema Simple</span>
                 <ArrowRight size={15} />
               </a>
             </div>
           </div>
 
-          {/* Service 3: Integraciones de IA e IO */}
+          {/* Servicio 3: Soporte continuo */}
           <div className="sc-service-card">
             <div className="sc-service-top">
               <div className="sc-service-icon-box">
-                <Cpu size={28} />
+                <Headphones size={28} />
               </div>
               <span className="sc-service-tag">{t('services.service3.tag')}</span>
             </div>
@@ -267,8 +440,13 @@ export default function Home() {
               ))}
             </ul>
             <div className="sc-service-footer">
-              <a href="#contacto" className="sc-service-link">
-                <span>{isSpanish ? 'Integrar Inteligencia Artificial' : 'Integrate AI Systems'}</span>
+              <a 
+                href={getWhatsAppUrl('Hola Synapcraft, quiero conocer los planes de soporte continuo y actualización.')}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="sc-service-link"
+              >
+                <span>Preguntar por Soporte</span>
                 <ArrowRight size={15} />
               </a>
             </div>
@@ -277,252 +455,41 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          3. FLAGSHIP PRODUCT: DENTALGRID (dentalgridse.com)
+          5. RESPALDO DENTALGRID (UNA LÍNEA, NO EL FOCO)
          ======================================================== */}
-      <section id="dentalgrid" className="sc-section sc-dentalgrid-section">
-        <div className="sc-dentalgrid-glow" />
-        
-        <div className="sc-dentalgrid-layout">
-          {/* Left Column: Product Info & Direct Link */}
-          <div className="sc-dentalgrid-info">
-            <div className="sc-dentalgrid-header-badge">
-              <Stethoscope size={16} />
-              <span>{t('dentalgrid.badge')}</span>
+      <section id="dentalgrid" className="sc-section-compact sc-backing-section">
+        <div className="sc-backing-container">
+          <div className="sc-backing-card">
+            <div className="sc-backing-left">
+              <div className="sc-backing-badge">
+                <ShieldCheck size={16} />
+                <span>{t('dentalgridBacking.badge')}</span>
+              </div>
+              <p className="sc-backing-text">
+                {t('dentalgridBacking.text')}
+              </p>
             </div>
 
-            <h2 className="sc-dentalgrid-title">
-              {t('dentalgrid.title')}
-            </h2>
-
-            <div className="sc-domain-badge">
-              <span className="sc-live-dot" />
-              <span>dentalgridse.com</span>
-              <span className="sc-domain-status">({t('dentalgrid.status')})</span>
-            </div>
-
-            <p className="sc-dentalgrid-desc">
-              {t('dentalgrid.description')}
-            </p>
-
-            <div className="sc-dental-feature-pills">
-              <div className="sc-pill-item">
-                <CheckCircle2 size={16} className="sc-check-icon" />
-                <span>{t('dentalgrid.card1Title')}</span>
-              </div>
-              <div className="sc-pill-item">
-                <CheckCircle2 size={16} className="sc-check-icon" />
-                <span>{t('dentalgrid.card2Title')}</span>
-              </div>
-              <div className="sc-pill-item">
-                <CheckCircle2 size={16} className="sc-check-icon" />
-                <span>{t('dentalgrid.card3Title')}</span>
-              </div>
-            </div>
-
-            <div className="sc-dentalgrid-actions">
+            <div className="sc-backing-right">
               <a 
-                href="https://dentalgridse.com" 
+                href={CONTACT_CONFIG.dentalgridUrl}
                 target="_blank" 
-                rel="noopener noreferrer" 
-                className="sc-dentalgrid-btn"
-                id="btn-visit-dentalgrid"
+                rel="noopener noreferrer"
+                className="sc-backing-btn"
+                title="Visitar software dentalgridse.com"
               >
-                <span className="sc-dg-btn-halo" />
-                <span className="sc-dg-btn-shine" />
-                <span className="sc-dg-btn-inner">
-                  <span className="sc-dg-beacon-dot" />
-                  <span className="sc-dg-btn-text">{t('dentalgrid.ctaVisit')}</span>
-                  <ExternalLink size={19} className="sc-dg-btn-icon" />
-                </span>
+                <span className="sc-backing-dot" />
+                <span className="sc-backing-domain">{t('dentalgridBacking.domain')}</span>
+                <span className="sc-backing-cta">{t('dentalgridBacking.cta')}</span>
+                <ExternalLink size={15} />
               </a>
-              <span className="sc-dental-subtext">
-                {isSpanish ? 'Software propio creado y operado por Synapcraft' : 'Proprietary software built and operated by Synapcraft'}
-              </span>
-            </div>
-          </div>
-
-          {/* Right Column: Interactive DentalGrid Dashboard Simulator */}
-          <div className="sc-dentalgrid-preview">
-            <div className="sc-mockup-browser">
-              <div className="sc-browser-header">
-                <div className="sc-browser-dots">
-                  <span className="dot dot-red" />
-                  <span className="dot dot-yellow" />
-                  <span className="dot dot-green" />
-                </div>
-                <div className="sc-browser-url-bar">
-                  <span className="sc-url-lock">🔒</span>
-                  <span className="sc-url-text">https://dentalgridse.com/app/clinical-records</span>
-                </div>
-                <span className="sc-browser-badge">DentalGrid v2.4</span>
-              </div>
-
-              <div className="sc-browser-body">
-                {/* App Topbar */}
-                <div className="sc-mock-topbar">
-                  <div className="sc-mock-logo">
-                    <span className="sc-dg-logo-mark">DG</span>
-                    <span className="sc-dg-title">DentalGrid SE</span>
-                  </div>
-                  <div className="sc-mock-user">
-                    <span className="sc-mock-clinic">Clínica Dental San Lucas</span>
-                    <div className="sc-mock-avatar">DR</div>
-                  </div>
-                </div>
-
-                {/* Patient Header */}
-                <div className="sc-patient-banner">
-                  <div className="sc-patient-meta">
-                    <span className="sc-patient-name">Carlos Mendoza</span>
-                    <span className="sc-patient-sub">Exp: #DG-4092 • {isSpanish ? 'Cita Hoy' : 'Today'} 10:30 AM</span>
-                  </div>
-                  <span className="sc-wa-reminder-badge">
-                    ✓ WhatsApp {isSpanish ? 'Recordatorio Enviado' : 'Reminder Sent'}
-                  </span>
-                </div>
-
-                {/* Interactive Odontogram Chart */}
-                <div className="sc-odontogram-box">
-                  <div className="sc-odontogram-title-bar">
-                    <span>{isSpanish ? 'Odontograma Clínico Interactivo' : 'Interactive Clinical Odontogram'}</span>
-                    <span className="sc-click-hint">{isSpanish ? 'Haz clic en una pieza:' : 'Click on a tooth:'}</span>
-                  </div>
-
-                  <div className="sc-teeth-row">
-                    {teethList.map((tooth) => {
-                      const isSelected = selectedTooth === tooth;
-                      const hasData = toothStatus[tooth];
-                      return (
-                        <button
-                          key={tooth}
-                          type="button"
-                          className={`sc-tooth-btn ${isSelected ? 'selected' : ''} ${hasData ? 'has-data' : ''}`}
-                          onClick={() => handleToothClick(tooth)}
-                        >
-                          <span className="sc-tooth-icon">🦷</span>
-                          <span className="sc-tooth-num">{tooth}</span>
-                          {hasData && (
-                            <span 
-                              className="sc-tooth-dot" 
-                              style={{ backgroundColor: hasData.color }} 
-                            />
-                          )}
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Active Tooth Details Pane */}
-                  <div className="sc-tooth-details">
-                    <div className="sc-tooth-header">
-                      <span className="sc-tooth-title">
-                        {isSpanish ? 'Pieza Dental' : 'Tooth'} #{selectedTooth}
-                      </span>
-                      {toothStatus[selectedTooth] ? (
-                        <span className="sc-tooth-status-tag" style={{ color: toothStatus[selectedTooth].color, borderColor: toothStatus[selectedTooth].color }}>
-                          {toothStatus[selectedTooth].label}
-                        </span>
-                      ) : (
-                        <span className="sc-tooth-status-tag healthy">
-                          {isSpanish ? 'Sano / Sin Patología' : 'Healthy / Normal'}
-                        </span>
-                      )}
-                    </div>
-                    <div className="sc-tooth-action-row">
-                      <span className="sc-diag-text">
-                        {toothStatus[selectedTooth] 
-                          ? (isSpanish ? 'Historial actualizado. Control radiográfico adjunto.' : 'Record updated. Radiographic evaluation attached.')
-                          : (isSpanish ? 'Pieza apta para profilaxis preventiva estándar.' : 'Piece clean, standard preventive care recommended.')}
-                      </span>
-                      <button type="button" className="sc-mini-action-btn">
-                        {isSpanish ? 'Ver Ficha' : 'View Chart'}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom Quick Metrics */}
-                <div className="sc-mock-footer-stats">
-                  <div className="sc-stat-chip">
-                    <Calendar size={14} />
-                    <span>8 {isSpanish ? 'Citas Hoy' : 'Appointments Today'}</span>
-                  </div>
-                  <div className="sc-stat-chip">
-                    <UserCheck size={14} />
-                    <span>98% {isSpanish ? 'Asistencia' : 'Attendance'}</span>
-                  </div>
-                  <div className="sc-stat-chip">
-                    <Activity size={14} />
-                    <span>{isSpanish ? 'Caja al Día' : 'Balance Updated'}</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ========================================================
-          4. DUAL MODEL: PROPRIETARY PRODUCTS + CLIENT SOLUTIONS
-         ======================================================== */}
-      <section id="modelo" className="sc-section sc-model-section">
-        <div className="sc-section-header">
-          <span className="sc-section-badge">{t('businessModel.badge')}</span>
-          <h2 className="sc-section-title">{t('businessModel.title')}</h2>
-          <p className="sc-section-subtitle">{t('businessModel.subtitle')}</p>
-        </div>
-
-        <div className="sc-model-grid">
-          {/* Card 1: Productos Propios */}
-          <div className="sc-model-card">
-            <div className="sc-model-icon-box">
-              <Layers size={32} />
-            </div>
-            <h3 className="sc-model-heading">{t('businessModel.ownProductsTitle')}</h3>
-            <p className="sc-model-desc">{t('businessModel.ownProductsDesc')}</p>
-            <div className="sc-model-evidence">
-              <div className="sc-evidence-item">
-                <span className="sc-evidence-dot" />
-                <span>DentalGrid (dentalgridse.com)</span>
-              </div>
-              <div className="sc-evidence-item">
-                <span className="sc-evidence-dot" />
-                <span>{isSpanish ? 'Infraestructura SaaS multi-inquilino' : 'Multi-tenant SaaS cloud infra'}</span>
-              </div>
-              <div className="sc-evidence-item">
-                <span className="sc-evidence-dot" />
-                <span>{isSpanish ? 'Iteración continua basada en usuarios reales' : 'Continuous iteration driven by real users'}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2: Ingeniería para Clientes */}
-          <div className="sc-model-card sc-model-card-client">
-            <div className="sc-model-icon-box sc-icon-cyan">
-              <Code2 size={32} />
-            </div>
-            <h3 className="sc-model-heading">{t('businessModel.clientSolutionsTitle')}</h3>
-            <p className="sc-model-desc">{t('businessModel.clientSolutionsDesc')}</p>
-            <div className="sc-model-evidence">
-              <div className="sc-evidence-item">
-                <span className="sc-evidence-dot" />
-                <span>{isSpanish ? 'Software corporativo sin limitaciones' : 'Custom uncompromised enterprise software'}</span>
-              </div>
-              <div className="sc-evidence-item">
-                <span className="sc-evidence-dot" />
-                <span>{isSpanish ? 'Propiedad total del código para tu negocio' : '100% intellectual property & code ownership'}</span>
-              </div>
-              <div className="sc-evidence-item">
-                <span className="sc-evidence-dot" />
-                <span>{isSpanish ? 'Integraciones de IA e interfaces comerciales' : 'AI integrations & sales-optimized frontends'}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          5. CEO & LEADERSHIP: SAMUEL AQUINO
+          6. FUNDADOR & LIDERAZGO: SAMUEL AQUINO
          ======================================================== */}
       <section id="ceo" className="sc-section sc-ceo-section">
         <div className="sc-ceo-card">
@@ -531,7 +498,7 @@ export default function Home() {
               <div className="sc-ceo-avatar-frame">
                 <img 
                   src="/samuel-aquino.jpg" 
-                  alt="Samuel Aquino - CEO & Founder de Synapcraft" 
+                  alt="Samuel Aquino - Fundador de Synapcraft" 
                   className="sc-ceo-photo"
                   loading="lazy"
                 />
@@ -539,7 +506,7 @@ export default function Home() {
               </div>
               <div className="sc-ceo-badge-floating">
                 <ShieldCheck size={16} />
-                <span>Founder & CEO</span>
+                <span>Founder & Lead Dev</span>
               </div>
             </div>
 
@@ -552,15 +519,15 @@ export default function Home() {
               <div className="sc-ceo-social-strip">
                 <span className="sc-social-label">{t('ceo.socialText')}</span>
                 <a 
-                  href={t('ceo.instagramUrl')} 
+                  href={CONTACT_CONFIG.ceoInstagramUrl} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="sc-instagram-ceo-btn"
                   title="Instagram Samuel Aquino (@srdevelop)"
                 >
-                  <InstagramIcon size={20} />
-                  <span>{t('ceo.instagramHandle')}</span>
-                  <ExternalLink size={15} />
+                  <InstagramIcon size={18} />
+                  <span>{CONTACT_CONFIG.ceoInstagramHandle}</span>
+                  <ExternalLink size={14} />
                 </a>
               </div>
             </div>
@@ -569,7 +536,7 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          6. CONTACT & PROJECT ESTIMATOR
+          7. LLAMADO A LA ACCIÓN (WHATSAPP + FORMULARIO ALTERNATIVO)
          ======================================================== */}
       <section id="contacto" className="sc-section sc-contact-section">
         <div className="sc-section-header">
@@ -579,6 +546,39 @@ export default function Home() {
         </div>
 
         <div className="sc-contact-container">
+          {/* Main Direct WhatsApp Callout Banner */}
+          <div className="sc-whatsapp-callout-card">
+            <div className="sc-wa-callout-glow" />
+            <div className="sc-wa-callout-content">
+              <div className="sc-wa-callout-icon-wrap">
+                <WhatsAppIcon size={38} className="sc-wa-big-icon" />
+              </div>
+              <div className="sc-wa-callout-text">
+                <h3>¿Prefieres hablar directamente?</h3>
+                <p>Escríbenos ahora mismo. Te respondemos con amabilidad y te orientamos sobre la mejor opción para tu negocio en RD.</p>
+              </div>
+              <a 
+                href={getWhatsAppUrl('Hola Synapcraft, quiero hablar con ustedes sobre una página web o sistema para mi negocio.')}
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="sc-wa-big-btn"
+                id="main-cta-whatsapp-btn"
+              >
+                <WhatsAppIcon size={22} />
+                <span>{t('contact.whatsappBtn')}</span>
+              </a>
+            </div>
+            <span className="sc-wa-callout-sub">{t('contact.whatsappSubtext')}</span>
+          </div>
+
+          {/* Alternative Divider */}
+          <div className="sc-alternative-divider">
+            <span className="sc-divider-line" />
+            <span className="sc-divider-text">{t('contact.orAlternative')}</span>
+            <span className="sc-divider-line" />
+          </div>
+
+          {/* Alternative Netlify Form */}
           <form 
             name="contact" 
             method="POST" 
@@ -598,24 +598,24 @@ export default function Home() {
             {formSubmitted ? (
               <div className="sc-form-success">
                 <CheckCircle2 size={54} className="sc-success-icon" />
-                <h3>{isSpanish ? '¡Solicitud Recibida!' : 'Inquiry Received!'}</h3>
+                <h3>{isSpanish ? '¡Mensaje Enviado!' : 'Inquiry Received!'}</h3>
                 <p>{t('contact.form.successMsg')}</p>
                 <div className="sc-success-actions">
                   <a 
-                    href="https://instagram.com/synapcraft" 
+                    href={getWhatsAppUrl('Hola Synapcraft, acabo de enviar el formulario web pero también les escribo por aquí.')} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="sc-instagram-direct-btn"
+                    className="sc-btn-whatsapp-sm"
                   >
-                    <InstagramIcon size={18} />
-                    <span>{t('contact.instagramCta')}</span>
+                    <WhatsAppIcon size={18} />
+                    <span>Escribir también por WhatsApp</span>
                   </a>
                   <button 
                     type="button" 
                     className="sc-reset-form-btn"
                     onClick={() => setFormSubmitted(false)}
                   >
-                    {isSpanish ? 'Enviar otra consulta' : 'Submit another inquiry'}
+                    {isSpanish ? 'Enviar otro mensaje' : 'Submit another inquiry'}
                   </button>
                 </div>
               </div>
@@ -636,12 +636,12 @@ export default function Home() {
                   <div className="sc-form-group">
                     <label>{t('contact.form.emailLabel')}</label>
                     <input 
-                      type="email" 
-                      name="email"
+                      type="text" 
+                      name="contactInfo"
                       required
                       placeholder={t('contact.form.emailPlaceholder')}
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      value={formData.contactInfo}
+                      onChange={(e) => setFormData({ ...formData, contactInfo: e.target.value })}
                     />
                   </div>
                 </div>
@@ -654,25 +654,24 @@ export default function Home() {
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                     >
-                      <option value="software-corporativo">{t('contact.form.serviceOpt1')}</option>
-                      <option value="sitio-web">{t('contact.form.serviceOpt2')}</option>
-                      <option value="integracion-ia">{t('contact.form.serviceOpt3')}</option>
+                      <option value="pagina-web">{t('contact.form.serviceOpt1')}</option>
+                      <option value="sistema-medida">{t('contact.form.serviceOpt2')}</option>
+                      <option value="soporte">{t('contact.form.serviceOpt3')}</option>
                       <option value="dentalgrid">{t('contact.form.serviceOpt4')}</option>
-                      <option value="desarrollo-completo">{t('contact.form.serviceOpt5')}</option>
                     </select>
                   </div>
 
                   <div className="sc-form-group">
                     <label>{t('contact.form.budgetLabel')}</label>
                     <select 
-                      name="budget"
-                      value={formData.budget}
-                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                      name="rubro"
+                      value={formData.rubro}
+                      onChange={(e) => setFormData({ ...formData, rubro: e.target.value })}
                     >
-                      <option value="<1k">{t('contact.form.budgetOpt1')}</option>
-                      <option value="1k-3k">{t('contact.form.budgetOpt2')}</option>
-                      <option value="3k-10k">{t('contact.form.budgetOpt3')}</option>
-                      <option value="10k+">{t('contact.form.budgetOpt4')}</option>
+                      <option value="farmacia">{t('contact.form.budgetOpt1')}</option>
+                      <option value="ferreteria">{t('contact.form.budgetOpt2')}</option>
+                      <option value="gimnasio">{t('contact.form.budgetOpt3')}</option>
+                      <option value="otro">{t('contact.form.budgetOpt4')}</option>
                     </select>
                   </div>
                 </div>
@@ -696,7 +695,7 @@ export default function Home() {
                   </button>
 
                   <a 
-                    href="https://instagram.com/synapcraft" 
+                    href={CONTACT_CONFIG.instagramUrl} 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="sc-contact-alt-instagram"

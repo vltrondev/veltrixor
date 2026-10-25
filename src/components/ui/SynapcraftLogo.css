@@ -58,25 +58,24 @@
 }
 
 .sc-brand-synap {
-  font-weight: 700;
-  color: #ffffff;
+  font-weight: 800;
+  color: #0f172a;
 }
 
 .sc-brand-craft {
   font-weight: 800;
-  background: linear-gradient(135deg, #38bdf8 0%, #00d4ff 100%);
+  background: linear-gradient(135deg, #0284c7 0%, #00b4d8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 18px rgba(0, 212, 255, 0.35);
 }
 
 .sc-brand-sub {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.58rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1.6px;
   color: var(--sc-text-secondary);
   text-transform: uppercase;
   margin-top: 3px;
-  opacity: 0.85;
+  opacity: 0.9;
 }
