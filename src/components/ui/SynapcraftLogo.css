@@ -1,0 +1,82 @@
+.sc-logo-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.25s ease;
+}
+
+.sc-logo-container:hover {
+  transform: translateY(-1px);
+}
+
+.sc-logo-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sc-logo-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.45));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.sc-logo-container:hover .sc-logo-icon-img {
+  filter: drop-shadow(0 0 16px rgba(0, 212, 255, 0.75));
+  transform: scale(1.05);
+}
+
+.sc-logo-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.35) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.sc-logo-typography {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.sc-brand-name {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  line-height: 1.1;
+}
+
+.sc-brand-synap {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.sc-brand-craft {
+  font-weight: 800;
+  background: linear-gradient(135deg, #38bdf8 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 18px rgba(0, 212, 255, 0.35);
+}
+
+.sc-brand-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  color: var(--sc-text-secondary);
+  text-transform: uppercase;
+  margin-top: 3px;
+  opacity: 0.85;
+}
