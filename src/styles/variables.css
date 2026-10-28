@@ -1,63 +1,103 @@
 :root {
-  /* Synapcraft Official Design System - Core Tokens (Light / White Theme) */
-  --sc-bg-dark: #ffffff;            /* Base Pure White Canvas */
-  --sc-bg-surface: #f8fafc;         /* Crisp Off-White Surface (Slate 50) */
-  --sc-bg-subtle: #f1f5f9;          /* Slate 100 subtle background */
-  --sc-bg-card: #ffffff;            /* Pure White Card Surface */
+  /* ========================================================
+     SYNAPCRAFT CORPORATE & PREMIUM DESIGN SYSTEM TOKENS
+     ======================================================== */
+  
+  /* Canvas & Neutral Layers */
+  --sc-bg-canvas: #ffffff;
+  --sc-bg-subtle: #f8fafc;          /* Slate 50 */
+  --sc-bg-surface: #f1f5f9;         /* Slate 100 */
+  --sc-bg-surface-elevated: #ffffff;
+  --sc-bg-dark: #ffffff;            /* Base White Canvas */
+  --sc-bg-card: #ffffff;
   --sc-bg-card-hover: #ffffff;
   
-  /* Primary & Accent Spectrum */
-  --sc-cyan: #0284c7;               /* Deep Vivid Cyan / Sky 600 for high readability on white */
-  --sc-cyan-light: #0ea5e9;         /* Sky 500 */
-  --sc-cyan-glow: rgba(2, 132, 199, 0.2);
-  --sc-cyan-soft: rgba(2, 132, 199, 0.08);
-  --sc-blue: #2563eb;               /* Electric Blue */
-  --sc-blue-deep: #1d4ed8;
-  --sc-blue-glow: rgba(37, 99, 235, 0.25);
-  --sc-navy: #0f172a;               /* Deep Navy Accent */
-  
-  /* WhatsApp Green Accents */
-  --sc-whatsapp: #25D366;
-  --sc-whatsapp-dark: #128C7E;
-  --sc-whatsapp-glow: rgba(37, 211, 102, 0.28);
-  
-  /* Gradient Accents */
-  --sc-gradient-primary: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
-  --sc-gradient-text: linear-gradient(135deg, #0f172a 30%, #0284c7 100%);
-  --sc-gradient-cyan: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
-  --sc-gradient-card: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  --sc-gradient-border: linear-gradient(135deg, rgba(2, 132, 199, 0.3) 0%, rgba(37, 99, 235, 0.1) 100%);
+  /* Slate & Dark Monochromatic Hierarchy */
+  --sc-slate-950: #090d16;          /* Deepest executive black-slate */
+  --sc-slate-900: #0f172a;          /* Slate 900 */
+  --sc-slate-800: #1e293b;          /* Slate 800 */
+  --sc-slate-700: #334155;          /* Slate 700 */
+  --sc-slate-600: #475569;          /* Slate 600 */
+  --sc-slate-500: #64748b;          /* Slate 500 */
+  --sc-slate-400: #94a3b8;          /* Slate 400 */
+  --sc-slate-200: #e2e8f0;          /* Slate 200 */
+  --sc-slate-100: #f1f5f9;          /* Slate 100 */
 
   /* Text & Contrast */
-  --sc-text-primary: #0f172a;        /* Slate 900 - Dark crisp text */
-  --sc-text-secondary: #475569;      /* Slate 600 - Highly legible subtext */
-  --sc-text-muted: #64748b;          /* Slate 500 */
-  --sc-border: rgba(15, 23, 42, 0.09);
-  --sc-border-bright: rgba(2, 132, 199, 0.3);
-  --sc-border-subtle: rgba(15, 23, 42, 0.05);
+  --sc-text-primary: #090d16;       /* Ultra-crisp executive dark */
+  --sc-text-secondary: #334155;     /* High readability secondary */
+  --sc-text-muted: #64748b;         /* Muted technical captions */
+  --sc-text-inverse: #ffffff;
 
-  /* Glassmorphism & Shadow Depth */
+  /* Primary Brand Spectrum (Cobalt & Cyan Tech) */
+  --sc-cyan: #0284c7;               /* Vivid Sky/Cyan 600 */
+  --sc-cyan-light: #0ea5e9;         /* Sky 500 */
+  --sc-cyan-dark: #0369a1;          /* Sky 700 */
+  --sc-cyan-soft: rgba(2, 132, 199, 0.08);
+  --sc-cyan-glow: rgba(2, 132, 199, 0.25);
+
+  --sc-blue: #2563eb;               /* Electric Royal Blue 600 */
+  --sc-blue-deep: #1d4ed8;          /* Blue 700 */
+  --sc-blue-soft: rgba(37, 99, 235, 0.08);
+  --sc-blue-glow: rgba(37, 99, 235, 0.25);
+  --sc-indigo: #4f46e5;
+
+  /* High-Trust WhatsApp Emerald Accents */
+  --sc-whatsapp: #25D366;
+  --sc-whatsapp-dark: #128C7E;
+  --sc-whatsapp-deep: #059669;
+  --sc-whatsapp-soft: rgba(37, 211, 102, 0.1);
+  --sc-whatsapp-glow: rgba(37, 211, 102, 0.35);
+
+  /* Borders & Dividers */
+  --sc-border: rgba(15, 23, 42, 0.08);
+  --sc-border-medium: rgba(15, 23, 42, 0.12);
+  --sc-border-subtle: rgba(15, 23, 42, 0.05);
+  --sc-border-bright: rgba(2, 132, 199, 0.3);
+  --sc-border-focus: rgba(37, 99, 235, 0.5);
+
+  /* Sophisticated Gradients */
+  --sc-gradient-primary: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  --sc-gradient-corporate: linear-gradient(135deg, #090d16 0%, #1e293b 100%);
+  --sc-gradient-text: linear-gradient(135deg, #090d16 20%, #0284c7 100%);
+  --sc-gradient-wa: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --sc-gradient-card: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+  --sc-gradient-card-hover: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+  --sc-gradient-border-glow: linear-gradient(135deg, rgba(2, 132, 199, 0.4) 0%, rgba(37, 99, 235, 0.15) 50%, rgba(16, 185, 129, 0.3) 100%);
+
+  /* Premium Multi-Layer Shadows (Elevation) */
+  --sc-shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --sc-shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03);
+  --sc-shadow-hover: 0 20px 35px -10px rgba(15, 23, 42, 0.09), 0 1px 4px rgba(15, 23, 42, 0.04);
+  --sc-shadow-premium: 0 25px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(15, 23, 42, 0.04);
+  --sc-shadow-glow: 0 0 30px rgba(2, 132, 199, 0.2);
+  --sc-shadow-wa-glow: 0 8px 25px rgba(37, 211, 102, 0.3);
+
+  /* Glassmorphism */
   --sc-glass-bg: rgba(255, 255, 255, 0.88);
   --sc-glass-blur: blur(20px);
-  --sc-shadow-premium: 0 16px 36px -8px rgba(15, 23, 42, 0.08);
-  --sc-shadow-glow: 0 0 25px rgba(2, 132, 199, 0.15);
-  --sc-shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03);
+  --sc-glass-border: rgba(255, 255, 255, 0.6);
 
-  /* Geometry & Motion */
-  --sc-radius-sm: 8px;
-  --sc-radius-md: 14px;
-  --sc-radius-lg: 20px;
-  --sc-radius-xl: 28px;
+  /* Geometry & Corner Radii */
+  --sc-radius-xs: 6px;
+  --sc-radius-sm: 10px;
+  --sc-radius-md: 16px;
+  --sc-radius-lg: 24px;
+  --sc-radius-xl: 32px;
+  --sc-radius-full: 9999px;
+
+  /* Smooth Elastic Transitions */
+  --sc-transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --sc-transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --sc-transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Legacy Backward Compatibility with previous veltrixor components */
-  --vt-deep-black: #0f172a;
+  /* Legacy Backward Compatibility */
+  --vt-deep-black: #090d16;
   --vt-electric-blue: var(--sc-cyan);
   --vt-electric-blue-glow: var(--sc-cyan-glow);
   --vt-electric-blue-soft: var(--sc-cyan-soft);
   --vt-deep-azure: var(--sc-blue);
-  --vt-deep-azure-soft: rgba(37, 99, 235, 0.08);
-  --vt-surface-gray: var(--sc-bg-surface);
+  --vt-surface-gray: var(--sc-bg-subtle);
   --vt-text-primary: var(--sc-text-primary);
   --vt-text-secondary: var(--sc-text-secondary);
   --vt-border: var(--sc-border);

@@ -1,21 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import SynapcraftLogo from '../ui/SynapcraftLogo';
-import InstagramIcon from '../ui/InstagramIcon';
 import WhatsAppIcon from '../ui/WhatsAppIcon';
-import { CONTACT_CONFIG, getWhatsAppUrl } from '../../config/contact';
-import { Globe, ArrowRight } from 'lucide-react';
+import { getWhatsAppUrl } from '../../config/contact';
+import { Globe, ArrowRight, Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user, logout } = useAuth();
-  const { language, setLanguage, t } = useLanguage();
+  const { language, setLanguage, t, isSpanish } = useLanguage();
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,180 +26,147 @@ export default function Navbar() {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
-  const scrollToSection = (id) => {
-    setIsMenuOpen(false);
-    if (location.pathname !== '/') {
-      navigate('/#' + id);
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
+  const toggleLanguage = () => {
+    setLanguage(language === 'es' ? 'en' : 'es');
   };
 
-  const isAuthPage = ['/login', '/register', '/forgot-password'].includes(location.pathname);
-
   return (
-    <nav className={`sc-navbar ${isScrolled ? 'sc-navbar-scrolled' : ''} ${isMenuOpen ? 'sc-navbar-open' : ''}`}>
+    <header className={`sc-navbar ${isScrolled ? 'sc-navbar-scrolled' : ''} ${isMenuOpen ? 'sc-navbar-open' : ''}`}>
+      {/* Top micro-announcement banner */}
+      <div className="sc-top-announcement">
+        <div className="sc-announcement-container">
+          <span className="sc-announcement-badge">
+            <span className="sc-pulse-live" />
+            <span>{isSpanish ? 'DISPONIBILIDAD INMEDIATA' : 'GLOBAL CAPACITY OPEN'}</span>
+          </span>
+          <span className="sc-announcement-text">
+            {isSpanish ? 'Desarrollo web corporativo, software a medida & plataformas en la nube' : 'Corporate web development, bespoke software & cloud platforms'}
+          </span>
+          <Link to="/contacto" className="sc-announcement-link">
+            <span>{isSpanish ? 'Agendar consulta' : 'Schedule inquiry'}</span>
+            <ArrowRight size={12} />
+          </Link>
+        </div>
+      </div>
+
       <div className="sc-navbar-container">
         <Link to="/" className="sc-navbar-logo-link" aria-label="Synapcraft Home">
           <SynapcraftLogo size={36} />
         </Link>
 
-        {!isAuthPage && (
-          <div className={`sc-navbar-links ${isMenuOpen ? 'active' : ''}`}>
+        <nav className={`sc-navbar-links ${isMenuOpen ? 'active' : ''}`} aria-label="Navegación principal">
+          <NavLink 
+            to="/" 
+            className={({ isActive }) => `sc-nav-btn-link ${isActive ? 'sc-nav-active' : ''}`}
+            end
+          >
+            {t('nav.home')}
+          </NavLink>
+
+          <NavLink 
+            to="/paginas-web" 
+            className={({ isActive }) => `sc-nav-btn-link ${isActive ? 'sc-nav-active' : ''}`}
+          >
+            {t('nav.websites')}
+          </NavLink>
+
+          <NavLink 
+            to="/software-a-medida" 
+            className={({ isActive }) => `sc-nav-btn-link ${isActive ? 'sc-nav-active' : ''}`}
+          >
+            {t('nav.software')}
+          </NavLink>
+
+          <NavLink 
+            to="/sectores" 
+            className={({ isActive }) => `sc-nav-btn-link ${isActive ? 'sc-nav-active' : ''}`}
+          >
+            {t('nav.sectors')}
+          </NavLink>
+
+          <NavLink 
+            to="/dentalgrid" 
+            className={({ isActive }) => `sc-nav-btn-link sc-nav-highlight ${isActive ? 'sc-nav-active' : ''}`}
+          >
+            <span className="sc-pulse-dot" />
+            <span>DentalGrid</span>
+          </NavLink>
+
+          <NavLink 
+            to="/nosotros" 
+            className={({ isActive }) => `sc-nav-btn-link ${isActive ? 'sc-nav-active' : ''}`}
+          >
+            {t('nav.about')}
+          </NavLink>
+
+          <NavLink 
+            to="/contacto" 
+            className={({ isActive }) => `sc-nav-btn-link ${isActive ? 'sc-nav-active' : ''}`}
+          >
+            {t('nav.contact')}
+          </NavLink>
+
+          {/* Mobile language and action controls */}
+          <div className="sc-navbar-mobile-only">
             <button 
               type="button" 
-              onClick={() => scrollToSection('paginas-web')} 
-              className="sc-nav-btn-link"
+              onClick={toggleLanguage} 
+              className="sc-lang-btn-mobile"
+              aria-label="Cambiar idioma"
             >
-              {t('nav.websites')}
+              <Globe size={18} />
+              <span>{language === 'es' ? 'English (EN)' : 'Español (ES)'}</span>
             </button>
 
-            <button 
-              type="button" 
-              onClick={() => scrollToSection('rubros')} 
-              className="sc-nav-btn-link"
+            <a 
+              href={getWhatsAppUrl('Hola Synapcraft, quiero hablar con un especialista sobre el desarrollo para mi empresa.')} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="sc-wa-mobile-btn"
             >
-              {t('nav.rubros')}
-            </button>
-
-            <button 
-              type="button" 
-              onClick={() => scrollToSection('servicios')} 
-              className="sc-nav-btn-link"
-            >
-              {t('nav.services')}
-            </button>
-
-            <button 
-              type="button" 
-              onClick={() => scrollToSection('dentalgrid')} 
-              className="sc-nav-btn-link sc-nav-highlight"
-            >
-              <span className="sc-pulse-dot" />
-              {t('nav.dentalgrid')}
-            </button>
-
-            <button 
-              type="button" 
-              onClick={() => scrollToSection('contacto')} 
-              className="sc-nav-btn-link"
-            >
-              {t('nav.contact')}
-            </button>
-
-            {/* Mobile language and action controls */}
-            <div className="sc-navbar-mobile-only">
-              <div className="sc-mobile-lang-wrap">
-                <Globe size={18} className="sc-lang-icon" />
-                <span className="sc-mobile-lang-title">Idioma:</span>
-                <div className="sc-lang-toggle">
-                  <button 
-                    type="button"
-                    className={`sc-lang-pill ${language === 'es' ? 'active' : ''}`}
-                    onClick={() => setLanguage('es')}
-                  >
-                    ES
-                  </button>
-                  <button 
-                    type="button"
-                    className={`sc-lang-pill ${language === 'en' ? 'active' : ''}`}
-                    onClick={() => setLanguage('en')}
-                  >
-                    EN
-                  </button>
-                </div>
-              </div>
-
-              <a 
-                href={CONTACT_CONFIG.instagramUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="sc-mobile-instagram-btn"
-              >
-                <InstagramIcon size={18} />
-                <span>{CONTACT_CONFIG.instagramHandle}</span>
-              </a>
-
-              <a 
-                href={getWhatsAppUrl('Hola Synapcraft, vi su página web y quiero información para mi negocio en República Dominicana.')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="sc-cta-btn sc-nav-wa-btn sc-mobile-cta"
-              >
-                <WhatsAppIcon size={18} />
-                <span>{t('nav.quoteBtn')}</span>
-              </a>
-            </div>
+              <WhatsAppIcon size={20} />
+              <span>WhatsApp Directo</span>
+            </a>
           </div>
-        )}
+        </nav>
 
+        {/* Desktop Controls */}
         <div className="sc-navbar-actions">
-          {/* Language Switcher pill for Desktop */}
-          <div className="sc-lang-toggle sc-desktop-only" title="Seleccionar Idioma / Select Language">
-            <Globe size={15} className="sc-lang-icon" />
-            <button 
-              type="button"
-              className={`sc-lang-pill ${language === 'es' ? 'active' : ''}`}
-              onClick={() => setLanguage('es')}
-              aria-label="Cambiar a Español"
-            >
-              ES
-            </button>
-            <span className="sc-lang-sep">|</span>
-            <button 
-              type="button"
-              className={`sc-lang-pill ${language === 'en' ? 'active' : ''}`}
-              onClick={() => setLanguage('en')}
-              aria-label="Switch to English"
-            >
-              EN
-            </button>
-          </div>
+          <button 
+            type="button" 
+            onClick={toggleLanguage} 
+            className="sc-lang-toggle-btn" 
+            title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+            aria-label="Selector de idioma"
+          >
+            <Globe size={15} />
+            <span className="sc-lang-text">{language === 'es' ? 'EN' : 'ES'}</span>
+          </button>
 
-          {/* Instagram direct link */}
+          {/* Icon-Only WhatsApp Action Button */}
           <a 
-            href={CONTACT_CONFIG.instagramUrl} 
+            href={getWhatsAppUrl('Hola Synapcraft, quiero hablar con un especialista sobre el desarrollo para mi empresa.')} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="sc-instagram-link sc-desktop-only"
-            title="Instagram @synapcraft"
+            className="sc-wa-nav-btn"
+            id="navbar-wa-cta"
+            title="Escríbenos por WhatsApp"
+            aria-label="Contactar por WhatsApp"
           >
-            <InstagramIcon size={18} />
+            <WhatsAppIcon size={22} />
           </a>
 
-          {/* Main CTA: WhatsApp directo */}
-          <a 
-            href={getWhatsAppUrl('Hola Synapcraft, vi su página web y quiero información para mi negocio en República Dominicana.')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sc-cta-btn sc-nav-wa-btn sc-desktop-only"
-            id="nav-whatsapp-cta"
-          >
-            <span className="sc-cta-inner">
-              <WhatsAppIcon size={16} className="sc-cta-sparkle" />
-              <span>{t('nav.quoteBtn')}</span>
-              <ArrowRight size={14} className="sc-cta-arrow" />
-            </span>
-          </a>
-
-          {/* Hamburger button */}
+          {/* Mobile hamburger toggle */}
           <button 
-            type="button"
-            className={`sc-hamburger ${isMenuOpen ? 'active' : ''}`}
+            type="button" 
+            className="sc-hamburger-btn" 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Abrir menú"
+            aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
-            <span />
-            <span />
-            <span />
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }

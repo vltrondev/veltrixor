@@ -1,16 +1,20 @@
 // Configuration for contact channels
 export const CONTACT_CONFIG = {
-  // Replace with your real Dominican WhatsApp phone number (format: 1809XXXXXXX, 1829XXXXXXX, 1849XXXXXXX)
-  whatsappPhone: import.meta.env.VITE_WHATSAPP_PHONE || '18293529944',
+  // WhatsApp phone number
+  whatsappPhone: import.meta.env.VITE_WHATSAPP_PHONE || '18099447786',
+  phoneFormatted: '+1 (809) 944-7786',
+  
+  // Official Contact Email
+  email: 'synapcraft@hotmail.com',
   
   // Default WhatsApp message
-  defaultMessage: 'Hola Synapcraft, quiero una página web para mi negocio en República Dominicana.',
+  defaultMessage: 'Hola Synapcraft, quiero consultar sobre desarrollo de software o páginas web para mi empresa.',
   
   // Instagram URL
   instagramUrl: 'https://instagram.com/synapcraft',
   instagramHandle: '@synapcraft',
   
-  // CEO Instagram
+  // Founder Instagram
   ceoInstagramUrl: 'https://instagram.com/srdevelop',
   ceoInstagramHandle: '@srdevelop',
   

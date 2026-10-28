@@ -3,19 +3,15 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Loading from '../components/ui/Loading';
 import ScrollToTop from '../components/ui/ScrollToTop';
 import PublicLayout from '../components/layout/PublicLayout';
-import PrivateLayout from '../components/layout/PrivateLayout';
-import ProtectedRoute from './ProtectedRoute';
 
-// Lazy loading of pages
+// Dedicated corporate multi-page routes
 const Home = lazy(() => import('../pages/Home'));
-const LaborSignalInfo = lazy(() => import('../pages/LaborSignalInfo'));
-const PriceTrackrInfo = lazy(() => import('../pages/PriceTrackrInfo'));
-const Login = lazy(() => import('../pages/Login'));
-const Register = lazy(() => import('../pages/Register'));
-const ForgotPassword = lazy(() => import('../pages/ForgotPassword'));
-const Onboarding = lazy(() => import('../pages/Onboarding'));
-const Dashboard = lazy(() => import('../pages/Dashboard'));
-const Profile = lazy(() => import('../pages/Profile'));
+const WebsitesPage = lazy(() => import('../pages/WebsitesPage'));
+const SoftwarePage = lazy(() => import('../pages/SoftwarePage'));
+const SectorsPage = lazy(() => import('../pages/SectorsPage'));
+const DentalGridPage = lazy(() => import('../pages/DentalGridPage'));
+const AboutPage = lazy(() => import('../pages/AboutPage'));
+const ContactPage = lazy(() => import('../pages/ContactPage'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
 export default function AppRoutes() {
@@ -24,28 +20,29 @@ export default function AppRoutes() {
       <ScrollToTop />
       <Suspense fallback={<Loading />}>
         <Routes>
-          {/* Public Routes with PublicLayout */}
+          {/* Main Public Corporate Routes */}
           <Route element={<PublicLayout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/laborsignal" element={<LaborSignalInfo />} />
-            <Route path="/pricetrackr" element={<PriceTrackrInfo />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/signup" element={<Navigate to="/register" replace />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/paginas-web" element={<WebsitesPage />} />
+            <Route path="/software-a-medida" element={<SoftwarePage />} />
+            <Route path="/sectores" element={<SectorsPage />} />
+            <Route path="/dentalgrid" element={<DentalGridPage />} />
+            <Route path="/nosotros" element={<AboutPage />} />
+            <Route path="/contacto" element={<ContactPage />} />
+
+            {/* Redirects & Aliases */}
+            <Route path="/servicios" element={<Navigate to="/software-a-medida" replace />} />
+            <Route path="/soluciones" element={<Navigate to="/paginas-web" replace />} />
+            <Route path="/login" element={<Navigate to="/" replace />} />
+            <Route path="/register" element={<Navigate to="/" replace />} />
+            <Route path="/signup" element={<Navigate to="/" replace />} />
+            <Route path="/forgot-password" element={<Navigate to="/" replace />} />
+            <Route path="/dashboard" element={<Navigate to="/" replace />} />
+
             <Route path="/404" element={<NotFound />} />
           </Route>
 
-          {/* Private Routes with ProtectedRoute and PrivateLayout */}
-          <Route element={<ProtectedRoute />}>
-            <Route element={<PrivateLayout />}>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/onboarding" element={<Onboarding />} />
-            </Route>
-          </Route>
-
-          {/* Fallback */}
+          {/* Catch-all fallback */}
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
       </Suspense>
