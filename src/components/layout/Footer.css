@@ -309,13 +309,13 @@
 @media (max-width: 960px) {
   .sc-trust-strip-container {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1.1rem;
   }
 
   .sc-footer-container {
     grid-template-columns: 1fr;
-    gap: 3rem;
-    padding-top: 3.5rem;
+    gap: 2.5rem;
+    padding: 3rem 1.5rem 2.5rem;
   }
 
   .sc-footer-grid {
@@ -325,13 +325,94 @@
 }
 
 @media (max-width: 640px) {
+  .sc-footer-trust-strip {
+    padding: 1.25rem 1rem;
+  }
+
+  .sc-trust-strip-container {
+    gap: 0.75rem;
+  }
+
+  .sc-trust-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .sc-trust-strip-text strong {
+    font-size: 0.84rem;
+  }
+
+  .sc-trust-strip-text span {
+    font-size: 0.72rem;
+  }
+
+  .sc-footer-container {
+    padding: 2rem 1rem 1.5rem;
+    gap: 1.75rem;
+  }
+
+  .sc-footer-brand {
+    gap: 0.85rem;
+  }
+
+  .sc-footer-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .sc-footer-direct-contact {
+    padding: 10px 14px;
+    border-radius: 12px;
+    max-width: 100%;
+  }
+
+  .sc-footer-phone-wa {
+    font-size: 0.9rem;
+  }
+
+  .sc-footer-email-link {
+    font-size: 0.85rem;
+  }
+
   .sc-footer-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 0.85rem;
+  }
+
+  .sc-footer-column h4 {
+    font-size: 0.84rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .sc-footer-column ul {
+    gap: 0.45rem;
+  }
+
+  .sc-footer-column button,
+  .sc-footer-column a {
+    font-size: 0.8rem;
+  }
+
+  .sc-footer-bottom {
+    padding: 1.2rem 1rem;
   }
 
   .sc-footer-bottom-container {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.65rem;
+  }
+
+  .sc-copyright,
+  .sc-rd-badge {
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .sc-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 }

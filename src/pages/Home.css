@@ -2237,45 +2237,61 @@
 /* ========================================================
    RESPONSIVE BREAKPOINTS (MOBILE & TABLET ADAPTATION)
    ======================================================== */
+
+/* 1. TABLETS & SMALL LAPTOPS (<= 1080px) */
 @media (max-width: 1080px) {
   .sc-features-grid,
   .sc-services-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
   }
 
   .sc-rubros-grid,
   .sc-process-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
   }
 
   .sc-backing-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+
+  .sc-solutions-grid {
+    gap: 1.5rem;
+  }
 }
 
+/* 2. TABLETS & MID SCREENS (<= 860px) */
 @media (max-width: 860px) {
   .sc-hero-title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
+  }
+
+  .sc-page-hero-title {
+    font-size: 2.1rem;
   }
 
   .sc-hero-metrics-strip {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .sc-software-preview-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
   }
 
   .sc-speed-scores-row {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
   .sc-rubros-custom-banner {
     flex-direction: column;
     text-align: center;
-    padding: 2rem;
+    padding: 1.75rem;
+    gap: 1.25rem;
   }
 
   .sc-ceo-grid {
@@ -2302,77 +2318,902 @@
   }
 
   .sc-floating-wa-btn {
-    padding: 14px;
+    padding: 13px;
     border-radius: 50%;
   }
 }
 
-@media (max-width: 640px) {
+/* 3. MOBILE SMARTPHONES & PHABLETS (<= 768px) */
+@media (max-width: 768px) {
+  /* Global section compacting — avoids divs eating whole screen */
+  .sc-section {
+    padding: 2.8rem 1.15rem;
+  }
+
+  .sc-section-header {
+    margin-bottom: 1.85rem;
+  }
+
+  .sc-section-badge {
+    padding: 5px 14px;
+    font-size: 0.72rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .sc-section-title {
+    font-size: 1.55rem;
+    line-height: 1.24;
+    margin-bottom: 0.5rem;
+  }
+
+  .sc-section-subtitle,
+  .sc-section-readable-p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  /* Page Heros (Dedicated Pages) */
+  .sc-page-hero {
+    padding: 95px 1.15rem 32px;
+  }
+
+  .sc-page-hero-title {
+    font-size: 1.85rem;
+    line-height: 1.22;
+    margin: 0.75rem 0 0.85rem;
+  }
+
+  .sc-page-hero-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 1.35rem;
+  }
+
+  .sc-page-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  /* Main Home Hero Section */
   .sc-hero-section {
-    padding: 120px 1rem 60px;
+    min-height: auto;
+    padding: 95px 1.15rem 35px;
+  }
+
+  .sc-hero-title {
+    font-size: 1.85rem;
+    line-height: 1.22;
+    margin: 0 0 0.85rem 0;
+  }
+
+  .sc-hero-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin: 0 0 1.35rem 0;
+  }
+
+  .sc-hero-actions-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    gap: 0.75rem;
   }
 
   .sc-hero-actions {
     flex-direction: column;
     width: 100%;
+    gap: 0.65rem;
   }
 
   .sc-btn-whatsapp-primary,
   .sc-btn-secondary {
     width: 100%;
     justify-content: center;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+
+  .sc-response-time-pill {
+    font-size: 0.76rem;
+    padding: 5px 12px;
+  }
+
+  /* Hero Metrics: tidy 2x2 grid instead of 4 giant vertical screen-eaters */
+  .sc-hero-metrics-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+    margin: 1.5rem 0 1.25rem;
+    background: transparent;
+    border: none;
+    width: 100%;
+  }
+
+  .sc-hero-metric-item {
+    padding: 0.75rem 0.5rem;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+    text-align: center;
+  }
+
+  .sc-hero-metric-val {
+    font-size: 1.4rem;
+    margin-bottom: 2px;
+  }
+
+  .sc-hero-metric-lbl {
+    font-size: 0.7rem;
+    line-height: 1.22;
+  }
+
+  /* Interactive Digital Showcase Mockup */
+  .sc-showcase-frame {
+    border-radius: 16px;
   }
 
   .sc-showcase-window-bar {
+    padding: 8px 10px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .sc-window-dots,
+  .sc-window-ssl {
+    display: none;
   }
 
   .sc-showcase-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    overflow-x: auto;
+    gap: 4px;
+    padding: 3px;
+    background: #f1f5f9;
+    border-radius: 10px;
   }
 
-  .sc-features-grid,
-  .sc-services-grid,
-  .sc-rubros-grid,
-  .sc-process-grid {
+  .sc-tab-btn {
+    padding: 6px 4px;
+    font-size: 0.72rem;
+    justify-content: center;
+    text-align: center;
+    border-radius: 7px;
+    white-space: nowrap;
+    gap: 4px;
+  }
+
+  .sc-showcase-content {
+    padding: 1rem 0.85rem;
+    min-height: auto;
+  }
+
+  .sc-google-bar {
+    padding: 6px 10px;
+    margin-bottom: 0.75rem;
+    gap: 8px;
+    border-radius: 20px;
+  }
+
+  .sc-google-logo-wrapper {
+    font-size: 0.95rem;
+  }
+
+  .sc-google-search-input {
+    font-size: 0.76rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sc-simulated-result {
+    padding: 0.85rem 0.75rem;
+    border-radius: 12px;
+  }
+
+  .sc-result-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .sc-biz-name {
+    font-size: 0.95rem;
+  }
+
+  .sc-biz-rating {
+    font-size: 0.72rem;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .sc-result-wa-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+  }
+
+  .sc-result-details {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .sc-detail-chip {
+    font-size: 0.72rem;
+    padding: 4px 8px;
+  }
+
+  .sc-software-preview-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.45rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .sc-software-stat-card {
+    padding: 0.65rem 0.45rem;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .sc-soft-stat-lbl {
+    font-size: 0.66rem;
+  }
+
+  .sc-soft-stat-val {
+    font-size: 1.15rem;
+  }
+
+  .sc-soft-stat-sub {
+    font-size: 0.64rem;
+  }
+
+  .sc-software-footer-banner {
+    padding: 0.75rem;
+    flex-direction: column;
+    gap: 0.6rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .sc-speed-scores-row {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.35rem;
+  }
+
+  .sc-score-circle-card {
+    padding: 0.65rem 0.25rem;
+    border-radius: 10px;
+  }
+
+  .sc-score-circle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .sc-score-number {
+    font-size: 0.95rem;
+  }
+
+  .sc-score-title {
+    font-size: 0.68rem;
+    margin-top: 4px;
+  }
+
+  .sc-score-desc {
+    display: none;
+  }
+
+  /* Sectors Trust Bar */
+  .sc-sectors-trust-bar {
+    padding: 1.25rem 1rem;
+  }
+
+  .sc-trust-chips-row {
+    gap: 6px;
+  }
+
+  .sc-trust-chip {
+    padding: 4px 10px;
+    font-size: 0.74rem;
+  }
+
+  /* Solutions Grid: Compact & readable cards */
+  .sc-solutions-grid {
     grid-template-columns: 1fr;
+    gap: 0.85rem;
   }
 
-  .sc-hero-metrics-strip {
+  .sc-solution-portal-card {
+    padding: 1.2rem 1.05rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+  }
+
+  .sc-portal-card-top {
+    margin-bottom: 0.55rem;
+  }
+
+  .sc-portal-card-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .sc-portal-card-desc {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    margin-bottom: 0.75rem;
+  }
+
+  .sc-portal-card-footer {
+    padding-top: 0.65rem;
+  }
+
+  /* Features & Services Grid */
+  .sc-features-grid,
+  .sc-services-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .sc-feature-card,
+  .sc-service-card {
+    padding: 1.1rem 0.95rem;
+    border-radius: 14px;
+  }
+
+  .sc-feature-icon-box,
+  .sc-service-icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    margin-bottom: 0.6rem;
+  }
+
+  .sc-feature-title,
+  .sc-service-title {
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .sc-feature-desc,
+  .sc-service-desc {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    margin-bottom: 0.7rem;
+  }
+
+  .sc-feature-footer,
+  .sc-service-footer {
+    padding-top: 0.55rem;
+  }
+
+  .sc-feature-check {
+    font-size: 0.75rem;
+  }
+
+  /* Comparison Table (Scrollable & Compact) */
+  .sc-comparison-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 14px;
+  }
+
+  .sc-comparison-table {
+    min-width: 520px;
+  }
+
+  .sc-comparison-table th {
+    padding: 0.8rem 0.65rem;
+    font-size: 0.8rem;
+  }
+
+  .sc-comparison-table td {
+    padding: 0.7rem 0.65rem;
+    font-size: 0.8rem;
+  }
+
+  .sc-th-feature,
+  .sc-th-synap,
+  .sc-th-others {
+    white-space: nowrap;
+  }
+
+  /* Rubros / Sectors */
+  .sc-rubros-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .sc-rubro-card {
+    padding: 1.1rem 0.95rem;
+    border-radius: 14px;
+  }
+
+  .sc-rubro-header {
+    margin-bottom: 0.55rem;
+  }
+
+  .sc-rubro-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .sc-rubro-name {
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .sc-rubro-text {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    margin-bottom: 0.65rem;
+  }
+
+  .sc-rubro-highlight-box {
+    padding: 6px 10px;
+    margin-bottom: 0.7rem;
+    border-radius: 8px;
+  }
+
+  .sc-rubro-highlight-text {
+    font-size: 0.75rem;
+  }
+
+  .sc-rubros-custom-banner {
+    padding: 1.25rem 1rem;
+    border-radius: 14px;
+    gap: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sc-custom-banner-text h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .sc-custom-banner-text p {
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
+  .sc-btn-white-pill {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 16px;
+    font-size: 0.88rem;
+  }
+
+  /* DentalGrid Backing Showcase */
+  .sc-backing-card {
+    padding: 1.25rem 1rem;
+    border-radius: 16px;
+  }
+
+  .sc-backing-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
 
-  .sc-backing-card {
-    padding: 2rem 1.5rem;
+  .sc-backing-title {
+    font-size: 1.4rem;
+    line-height: 1.22;
+    margin-bottom: 0.45rem;
   }
 
+  .sc-backing-text {
+    font-size: 0.86rem;
+    line-height: 1.5;
+    margin-bottom: 0.85rem;
+  }
+
+  .sc-backing-features-row {
+    gap: 0.45rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .sc-back-feat {
+    font-size: 0.82rem;
+  }
+
+  .sc-backing-cta-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.6rem;
+  }
+
+  .sc-backing-btn-primary,
+  .sc-backing-btn-wa {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 18px;
+    font-size: 0.88rem;
+  }
+
+  .sc-clinic-card-mockup {
+    padding: 1rem 0.85rem;
+    border-radius: 14px;
+  }
+
+  .sc-clinic-mockup-header {
+    margin-bottom: 0.75rem;
+  }
+
+  .sc-clinic-mockup-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .sc-clinic-stat-item {
+    padding: 0.6rem 0.45rem;
+    border-radius: 10px;
+    gap: 8px;
+  }
+
+  .sc-stat-num {
+    font-size: 1.15rem;
+  }
+
+  .sc-stat-lbl {
+    font-size: 0.68rem;
+  }
+
+  .sc-clinic-trust-quote {
+    padding-top: 0.75rem;
+  }
+
+  .sc-clinic-trust-quote p {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  /* Process Cards */
+  .sc-process-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .sc-process-card {
+    padding: 1.1rem 0.95rem;
+    border-radius: 14px;
+  }
+
+  .sc-step-num {
+    font-size: 1.55rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .sc-step-icon-wrap {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    margin-bottom: 0.65rem;
+  }
+
+  .sc-process-card h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .sc-process-card p {
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
+  /* FAQ Accordion */
+  .sc-faq-list {
+    gap: 0.6rem;
+  }
+
+  .sc-faq-item {
+    border-radius: 12px;
+  }
+
+  .sc-faq-question-btn {
+    padding: 0.95rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .sc-faq-q-text {
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .sc-faq-answer-content {
+    padding: 0 1rem 0.95rem;
+  }
+
+  .sc-faq-answer-content p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0.6rem 0 0 0;
+  }
+
+  /* Founder / CEO Section */
   .sc-ceo-card {
-    padding: 2rem 1.5rem;
+    padding: 1.35rem 1rem;
+    border-radius: 18px;
   }
 
-  .sc-contact-form {
-    padding: 2rem 1.25rem;
+  .sc-ceo-grid {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+    text-align: center;
   }
 
+  .sc-ceo-avatar-frame {
+    width: 130px;
+    height: 130px;
+    border-radius: 18px;
+  }
+
+  .sc-ceo-name {
+    font-size: 1.45rem;
+  }
+
+  .sc-ceo-role {
+    font-size: 0.86rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .sc-ceo-bio {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 1.15rem;
+  }
+
+  .sc-ceo-social-strip {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sc-instagram-ceo-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 9px 14px;
+    font-size: 0.85rem;
+  }
+
+  /* WhatsApp Callout Card */
   .sc-whatsapp-callout-card {
-    padding: 2rem 1.5rem;
+    padding: 1.35rem 1rem;
+    border-radius: 18px;
+    margin-bottom: 1.25rem;
+  }
+
+  .sc-wa-callout-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .sc-wa-callout-icon-wrap {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    margin: 0 auto;
+  }
+
+  .sc-wa-callout-text {
+    min-width: unset;
+  }
+
+  .sc-wa-callout-text h3 {
+    font-size: 1.22rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .sc-wa-callout-text p {
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 
   .sc-wa-big-btn {
     width: 100%;
     justify-content: center;
+    padding: 12px 20px;
+    font-size: 0.92rem;
+  }
+
+  /* Contact Netlify Form */
+  .sc-contact-form {
+    padding: 1.25rem 1rem;
+    border-radius: 18px;
+  }
+
+  .sc-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .sc-form-group {
+    margin-bottom: 0.85rem;
+    gap: 4px;
+  }
+
+  .sc-form-group label {
+    font-size: 0.82rem;
+  }
+
+  .sc-form-group input,
+  .sc-form-group select,
+  .sc-form-group textarea {
+    padding: 9px 12px;
+    font-size: 0.88rem;
+    border-radius: 10px;
   }
 
   .sc-form-submit-row {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.75rem;
+    margin-top: 0.65rem;
   }
 
   .sc-submit-btn {
     width: 100%;
     justify-content: center;
+    padding: 11px 18px;
+    font-size: 0.9rem;
+  }
+
+  /* Floating WhatsApp Button */
+  .sc-floating-wa-container {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .sc-floating-wa-btn {
+    padding: 12px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  }
+}
+
+/* 4. COMPACT MOBILE SCREENS (<= 480px) */
+@media (max-width: 480px) {
+  .sc-section {
+    padding: 2.2rem 0.85rem;
+  }
+
+  .sc-section-header {
+    margin-bottom: 1.4rem;
+  }
+
+  .sc-section-title {
+    font-size: 1.35rem;
+  }
+
+  .sc-page-hero {
+    padding: 82px 0.85rem 24px;
+  }
+
+  .sc-page-hero-title {
+    font-size: 1.55rem;
+    margin: 0.6rem 0 0.75rem;
+  }
+
+  .sc-hero-section {
+    padding: 82px 0.85rem 25px;
+  }
+
+  .sc-hero-title {
+    font-size: 1.55rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .sc-hero-subtitle,
+  .sc-page-hero-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .sc-btn-whatsapp-primary,
+  .sc-btn-secondary {
+    padding: 11px 16px;
+    font-size: 0.88rem;
+  }
+
+  .sc-hero-metrics-strip {
+    gap: 0.45rem;
+    margin: 1.25rem 0 0.75rem;
+  }
+
+  .sc-hero-metric-item {
+    padding: 0.65rem 0.4rem;
+  }
+
+  .sc-hero-metric-val {
+    font-size: 1.25rem;
+  }
+
+  .sc-hero-metric-lbl {
+    font-size: 0.66rem;
+  }
+
+  .sc-solutions-grid {
+    gap: 0.65rem;
+  }
+
+  .sc-solution-portal-card {
+    padding: 1.05rem 0.9rem;
+    border-radius: 14px;
+  }
+
+  .sc-portal-card-title {
+    font-size: 1.1rem;
+  }
+
+  .sc-portal-card-desc {
+    font-size: 0.82rem;
+  }
+
+  .sc-features-grid,
+  .sc-services-grid {
+    gap: 0.6rem;
+  }
+
+  .sc-feature-card,
+  .sc-service-card {
+    padding: 1rem 0.85rem;
+  }
+
+  .sc-software-preview-grid {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .sc-speed-scores-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.45rem;
+  }
+
+  .sc-comparison-table {
+    min-width: 480px;
+  }
+
+  .sc-comparison-table th,
+  .sc-comparison-table td {
+    padding: 0.65rem 0.5rem;
+    font-size: 0.76rem;
+  }
+
+  .sc-rubro-card,
+  .sc-process-card {
+    padding: 1rem 0.85rem;
+  }
+
+  .sc-backing-card {
+    padding: 1.1rem 0.85rem;
+  }
+
+  .sc-clinic-card-mockup {
+    padding: 0.9rem 0.75rem;
+  }
+
+  .sc-whatsapp-callout-card {
+    padding: 1.15rem 0.85rem;
+  }
+
+  .sc-contact-form {
+    padding: 1.1rem 0.85rem;
+  }
+
+  .sc-floating-wa-container {
+    bottom: 14px;
+    right: 14px;
   }
 }

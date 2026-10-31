@@ -22,6 +22,8 @@
 html {
   scroll-behavior: smooth;
   background-color: #ffffff;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -29,6 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 320px;
+  max-width: 100%;
   min-height: 100vh;
   background-color: #ffffff;
   color: var(--sc-text-primary);
@@ -38,6 +41,10 @@ body {
     radial-gradient(circle at 5% 45%, rgba(16, 185, 129, 0.03), transparent 40%),
     radial-gradient(circle at 95% 75%, rgba(37, 99, 235, 0.035), transparent 45%);
   background-attachment: fixed;
+}
+
+img, svg, video, canvas {
+  max-width: 100%;
 }
 
 #root {
