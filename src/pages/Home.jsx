@@ -112,7 +112,8 @@ export default function Home() {
                     onClick={() => setActiveHeroTab('google')}
                   >
                     <Search size={13} />
-                    <span>{t('hero.previewTabs.google')}</span>
+                    <span className="sc-tab-label-desktop">{t('hero.previewTabs.google')}</span>
+                    <span className="sc-tab-label-mobile">Google SEO</span>
                   </button>
 
                   <button 
@@ -121,7 +122,8 @@ export default function Home() {
                     onClick={() => setActiveHeroTab('software')}
                   >
                     <Boxes size={13} />
-                    <span>{t('hero.previewTabs.software')}</span>
+                    <span className="sc-tab-label-desktop">{t('hero.previewTabs.software')}</span>
+                    <span className="sc-tab-label-mobile">SaaS Cloud</span>
                   </button>
 
                   <button 
@@ -130,7 +132,8 @@ export default function Home() {
                     onClick={() => setActiveHeroTab('speed')}
                   >
                     <Zap size={13} />
-                    <span>{t('hero.previewTabs.speed')}</span>
+                    <span className="sc-tab-label-desktop">{t('hero.previewTabs.speed')}</span>
+                    <span className="sc-tab-label-mobile">{isSpanish ? 'Velocidad' : 'Speed 100'}</span>
                   </button>
                 </div>
 
@@ -155,10 +158,13 @@ export default function Home() {
                       </div>
                       <div className="sc-google-search-input">
                         <Search size={15} className="sc-search-icon-sm" />
-                        <span className="sc-typed-text">
+                        <span className="sc-typed-text sc-typed-text-desktop">
                           {isSpanish 
                             ? 'empresas de software, clínicas y servicios corporativos' 
                             : 'best enterprise web & healthcare software near me'}
+                        </span>
+                        <span className="sc-typed-text sc-typed-text-mobile">
+                          {isSpanish ? 'software empresarial & web corporativa' : 'enterprise software & web studio'}
                         </span>
                         <span className="sc-cursor-blink">|</span>
                       </div>
@@ -197,9 +203,9 @@ export default function Home() {
                         </div>
                         <div className="sc-detail-chip">
                           <Clock size={13} />
-                          <span>{isSpanish ? 'Atención al Cliente Inmediata' : 'Immediate Customer Support'}</span>
+                          <span>{isSpanish ? 'Atención Inmediata' : 'Immediate Support'}</span>
                         </div>
-                        <div className="sc-detail-chip sc-chip-highlight">
+                        <div className="sc-detail-chip sc-chip-highlight sc-chip-desktop-only">
                           <Smartphone size={13} />
                           <span>{isSpanish ? 'Cotizaciones Digitales en Tiempo Real' : 'Instant Digital Quotes'}</span>
                         </div>
